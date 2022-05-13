@@ -1,4 +1,6 @@
 /*
+YF showing you manual edit in the oNLINE VERSION
+
 Hi, I run a music rental shop called The Music Note. 
 People rent instruments from me for short periods of time. 
 I need a system that will help keep track of all my instruments. 
