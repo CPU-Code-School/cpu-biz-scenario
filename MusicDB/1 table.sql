@@ -30,26 +30,11 @@ EnteredIntoSystem as getdate(),
         check (datediff(month, DateRented, DateReturned) between 1 and 12),
     constraint ck_Date_rented_must_be_before_date_returned 
         check (DateRented <= DateReturned),
-    constraint u_Customer_Instrument_name_and_Date_rented_must_be_unique
-        unique(InstrumentName,DateRented)
+    constraint u_Customer_Customer_first_name_and_Customer_last_name_and_Instrument_name_and_category_and_Date_rented_must_be_unique
+        unique(CustomerFirstName, CustomerLastName,InstrumentName,Category,DateRented)
         )
 select * from instrument i
 
---tests
--- MonthlyRentalFee cannot be negative
+--test 
 insert Instrument (CustomerFirstName, CustomerLastName,InstrumentName,Category,MonthlyRentalFee,DateRented,DateReturned)
-select 'Jack', 'Shields', 'Flute', 'Wind', -1, '01/01/2021', '05/03/2021'
---DateRented can be current date
-insert Instrument (CustomerFirstName, CustomerLastName,InstrumentName,Category,MonthlyRentalFee,DateRented,DateReturned)
-select 'Jack', 'Shields', 'Flute', 'Wind', 30, getdate(), null
---DateRented cannot be a future date
-insert Instrument (CustomerFirstName, CustomerLastName,InstrumentName,Category,MonthlyRentalFee,DateRented,DateReturned)
-select 'Jack', 'Shields', 'Flute', 'Wind', 30, '05/19/2022', null
---DateRented must be after DateReturn
-insert Instrument (CustomerFirstName, CustomerLastName,InstrumentName,Category,MonthlyRentalFee,DateRented,DateReturned)
-select 'Jack', 'Shields', 'Flute', 'Wind', 30, '01/22/2022', '01/21/2022'
---Cannot have same instrument rented by two different people on the same date
-insert Instrument (CustomerFirstName, CustomerLastName,InstrumentName,Category,MonthlyRentalFee,DateRented,DateReturned)
-select 'Naomi', 'Sher', 'Guitar', 'String', 42, '02/13/2021', '04/12/2021'
-
-insert Instrument (CustomerFirstName, CustomerLastName,InstrumentName,Category,MonthlyRentalFee,DateRented,DateReturned)
+select 'Chana', 'Shields', 'Flute', 'Wind', 30, '01/01/2021', '05/03/2021'
