@@ -3,7 +3,7 @@ go
 delete Instrument 
 go 
 
-insert Instrument (CustomerFirstName, CustomerLastName,Instrument,Category,MonthlyRentalFee,DateRented,DateReturned)
+insert Instrument (CustomerFirstName, CustomerLastName,InstrumentName,Category,MonthlyRentalFee,DateRented,DateReturned)
 select 'Esther', 'Shields', 'Flute', 'Wind', 30, '01/01/2021', '05/03/2021'
 union select 'Mendy', 'Weiss', 'Violin', 'String', 40, '06/07/2019', '02/16/2020'
 union select 'Rochel', 'Silber', 'French Horn', 'Brass', 70, '03/29/2021', '04/28/2021'
