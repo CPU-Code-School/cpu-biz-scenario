@@ -5,3 +5,4 @@ go
 create database AirlineDB
 go 
 use AirlineDB 
+go
