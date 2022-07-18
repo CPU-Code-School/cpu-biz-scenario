@@ -18,12 +18,6 @@ from Customer c
 where (c.RatePerHour = 35) and (c.AvgTime = 7) and (c.Frequency = 'weekly')
 order by PricePerYear desc
 
-/*mysql> select ProductName,
-   - > SUM(CASE WHEN ProductColor = 'Red' THEN 1 ELSE 0 END) AS Color,
-   - > SUM(CASE WHEN ProductDescription = 'New' THEN 1 ELSE 0 END) AS Desciption
-   - > from CountDifferentDemo
-   - > group by ProductName;
-   */
 
 select sum(case when c.StartDate like '2020%' then 1 else 0 end) as NewCustomers, 
        sum(case when c.Enddate like '2020%' then 1 else 0 end) as DroppedCustomers
