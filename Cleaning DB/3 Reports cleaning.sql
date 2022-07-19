@@ -13,7 +13,11 @@ order by NumOfMonths desc
 select AvgRatePerHourRegClean = avg(c.RatePerHour), AvgRatePerHourDeepClean = avg(c.RatePerHour * 1.5)
 from Customer c
 
-select PricePerYear =(c.RatePerHour * 52), * 
+select PricePerYear = 
+    case Frequency 
+        when 'weekly' then (c.RatePerHour * 52)
+        else (c.RatePerHour * 26)
+    end, * 
 from Customer c 
 where (c.RatePerHour = 35) and (c.AvgTime = 7) and (c.Frequency = 'weekly')
 order by PricePerYear desc
