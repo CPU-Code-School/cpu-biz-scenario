@@ -21,7 +21,7 @@ create table dbo.Customer(
     AvgTime decimal(4,2) not null 
             constraint c_Customer_avg_time_must_be_greater_than_zero check(AvgTime > 00.00),
     StartDate date not null 
-            constraint c_Customer_start_date_must_be_after_January_15_2017 check(StartDate > '01-05-2017'),
+            constraint c_Customer_start_date_must_be_after_January_15_2017 check(StartDate >= '01-15-2017'),
     EndDate date null, 
     PricePerMonth as 
         case Frequency 
