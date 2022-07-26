@@ -15,7 +15,12 @@ SELECT s.FirstName, s.LastName, s.DateBorn, s.EnlistmentDate, AgeAtEnlistment = 
 FROM Soldier s
 order by AgeAtEnlistment desc
 
-SELECT DataOnRecruitment= CONCAT(YearRange, ', ', s.FirstName ,' ',s.LastName, ' - ', s.SSN, ' (', s.EnlistmentDate, '), ', s.MilitaryBranch,'.')
+SELECT DataOnRecruitment= CONCAT(case 
+                                    when YEAR(EnlistmentDate) between 2017 and 2019 then '2017-2019'
+                                    when YEAR(EnlistmentDate) between 2020 and 2022 then '2020-2022'
+                                    else '' 
+                                        end,
+', ', s.FirstName ,' ',s.LastName, ' - ', s.SSN, ' (', s.EnlistmentDate, '), ', s.MilitaryBranch,'.')
 FROM Soldier s
 WHERE YEAR(s.EnlistmentDate) BETWEEN 2017 and 2022
 

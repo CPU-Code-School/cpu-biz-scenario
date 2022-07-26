@@ -13,3 +13,4 @@ union select 'Osher', 'Sharon', '95135778-2', '04/05/1996', 'Tel-Aviv', '01/04/2
 union select 'Yoni', 'Tamari', '24863570-5', '23/11/1999', 'Jerusalem', '01/12/2018', 'Air Force', 'lieutenant general', 139
 union select 'Shai', 'Ben Zeev', '93185378-1', '13/09/2001', 'Netanya', '01/01/2020', 'Air Force', 'sergeant', 120
 union select 'Dory', 'Lavie', '16834952-7', '28/10/2004', 'Haifa', '01/12/2021', 'Navy', 'brigadier general', 118
+
