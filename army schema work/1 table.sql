@@ -6,7 +6,7 @@ go
 
 create table dbo.Soldier
 (
-SoliderID int not null IDENTITY PRIMARY KEY,
+SoldierID int not null IDENTITY PRIMARY KEY,
 FirstName VARCHAR(30) not null
     CONSTRAINT ck_Soldier_FirstName_cannot_be_blank CHECK (FirstName <> ''),
 LastName VARCHAR(30) not null
@@ -23,7 +23,7 @@ MilitaryBranch VARCHAR(12) not null
     CONSTRAINT ck_Soldier_MilitaryBranch_is_navy_land_or_air CHECK (MilitaryBranch in ('Navy', 'Air Force', 'Ground Force')),
 Rank VARCHAR(25) not null 
     CONSTRAINT ck_Soldier_Rank_cannot_be_blank CHECK (Rank <> ''),
-IQLevel int not null CONSTRAINT ck_Soldier_IQLevel_between_0_and_300 CHECK (IQLevel between 0 and 300),
+IQLevel int not null CONSTRAINT ck_Soldier_IQLevel_greater_then_0 CHECK (IQLevel > 0),
 --I looked it up and the highest was in the two hundreds
 
     CONSTRAINT ck_Soldier_EnlistmentDate_must_be_at_age_17_or_after CHECK (year(EnlistmentDate) >= year(DateBorn)+17)
