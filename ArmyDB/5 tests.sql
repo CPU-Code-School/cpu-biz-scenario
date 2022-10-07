@@ -90,6 +90,17 @@ select 'David', 'Aviar', '54877773-2', '2001-01-01', 'Caesarea', '2021-04-01', '
 insert soldier(FirstName, LastName, SSN, DateOfBirth, PlaceOfResidence, DateOfEnlistment, ServiceUnit, RankInUnit, IQLevel)
 select 'David', 'Aviar', '54877773-2', '2001-01-01', 'Caesarea', '2021-04-01', 'Air Force', 'sergeant', null
 
+--constraint ck_Soldier_IQ_Level_cannot_be_negative check (IQLevel > -1)
+
+insert soldier(FirstName, LastName, SSN, DateOfBirth, PlaceOfResidence, DateOfEnlistment, ServiceUnit, RankInUnit, IQLevel)
+select 'David', 'Aviar', '54877773-2', '2001-01-01', 'Caesarea', '2021-04-01', 'Air Force', 'sergeant', -2
+
+insert soldier(FirstName, LastName, SSN, DateOfBirth, PlaceOfResidence, DateOfEnlistment, ServiceUnit, RankInUnit, IQLevel)
+select 'David', 'Aviar', '54877773-2', '2001-01-01', 'Caesarea', '2021-04-01', 'Air Force', 'sergeant', -1
+
+insert soldier(FirstName, LastName, SSN, DateOfBirth, PlaceOfResidence, DateOfEnlistment, ServiceUnit, RankInUnit, IQLevel)
+select 'David', 'Aviar', '54877773-2', '2001-01-01', 'Caesarea', '2021-04-01', 'Air Force', 'sergeant', 0
+
 --constraint ck_Date_Of_Enlistment_must_be_seventeen_or_more_years_greater_than_DateOfBirth check (datediff(year, DateOfBirth, DateOfEnlistment) >= 17)
 
 insert soldier(FirstName, LastName, SSN, DateOfBirth, PlaceOfResidence, DateOfEnlistment, ServiceUnit, RankInUnit, IQLevel)
