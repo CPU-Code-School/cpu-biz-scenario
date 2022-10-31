@@ -12,7 +12,7 @@ from Costume c
 order by c.RealtorName
 
 --3) a report of how long it took for each house to sell
---chang to date on market
+
 
 SELECT c.DateClosed, c.dateonmarket, DATEDIFF(day, dateonmarket, DateClosed)
 from costume c 
@@ -20,7 +20,6 @@ from costume c
 --4) the price difference from the asking price to the sold price
 select c.PriceAsked, c.PriceSold, c.PriceSold - c.PriceAsked
 from Costume c 
-
 
 
 

@@ -73,3 +73,4 @@ SELECT 'Rachel Gestetner', 'Lynn Drive, LLC', 'Yaakov Fishman', 'Rivka Harnik', 
 
 INSERT Costume(BuyerName, OwnerName, ClientName, RealtorName, AddressNumber, Street, Town, HouseType, housesquarefootage, LotSquareFootage, NumberBathrooms, NumberBedrooms, DateClosed, PriceAsked, PriceSold, Sold, InContract)
 SELECT 'Rachel Gestetner', 'Lynn Drive, LLC', 'Yaakov Fishman', 'Rivka Harnik', 5, 'Lynn Drive', 'Toms River', 'Colonial', 3000, 42000.5, 2.5, 4, '2/22/2021', 450000, 0,  1, 0
+

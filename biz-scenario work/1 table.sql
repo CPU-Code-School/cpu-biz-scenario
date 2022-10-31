@@ -44,8 +44,7 @@ create table dbo.Costume(
             CHECK((DateClosed is not null and sold = 1) or (dateclosed is null and sold = 0)),
         CONSTRAINT c_Price_Sold_must_be_greater_than_or_equal_to_Price_asked_or_0 CHECK((pricesold >= PriceAsked) or pricesold = 0),
         CONSTRAINT u_Costume_Address_Number_Street_Town_Date_Closed UNIQUE(addressnumber, street, town, DateinSystem)
-        
-        )
+                )
 GO
 
 INSERT Costume(BuyerName, OwnerName, ClientName, RealtorName, AddressNumber, Street, Town, HouseType, housesquarefootage, LotSquareFootage, NumberBathrooms, NumberBedrooms, DateonMarket, DateClosed, PriceAsked, PriceSold, Sold, InContract)
