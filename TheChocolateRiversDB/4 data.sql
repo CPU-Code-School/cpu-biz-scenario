@@ -4,26 +4,69 @@ go
 delete Chocolate
 go
 
-insert Chocolate (ChocType)
+insert Chocolate (ChocolateType, Flavor, Shape, RecipeSource, YearPutonMarket, ChocolateWeight, DateSold)
 select 
---ChocType
+--ChocolateType
 case  m.Medal 
 when 'gold' then 'Solid Block'
 when 'silver' then 'Chocolate Trouffles'
 when 'bronze' then 'Chocolate Candy Bar'
-end
-
+end,
+--Flavor
+case
+when m.SportSubCategory like '%ladies%' or m.SportSubCategory like '%women%' then 'Caramalized white chocolate'
+-- !!more consize whay to do like statment? 
+-- !! should I take away the wild card in beginging of all applicable data starts with ladies/or women? (ALSO APPLIES FOR MEN LIKE BELOW)
+when m.SportSubCategory like '%men%' then 'Milk Chocolate Hazelnut Esspresso'
+when m.SportSubcategory like '%[0-9]%' then 'Dark 54 Chocolate Rasberry Pomegranate'
+when m.SportSubcategory like '% %' then 'milk creme & Dark Creme'
+else 'Dark salted caramel'
+end,
+--!! is this sufficinent for measurment? 
+--!! is it okay changed order of chocolate flavor -- is there a way to specify one word? 
+--!! what does owner of chocrivers want in terms of capitalzing words?
+--Shape
+case  
+when m.AgeatMedal between  14 and 16 then 'heart'
+when m.AgeatMedal between 17 and 27 then 'oval'
+when m.AgeatMedal between 29 and 41 then 'square'
+when m.AgeatMedal between 48 and 58 then 'oracle'
+when m.AgeatMedal between 59 and 60 then 'ripple'
+else 'thimble'
+end,
+--RecipeSource
+m.Country,
+-- !! spec doesn't give source, assumed country 
+--YearPutonMarket
+m.YearBorn,
+--ChocolateWeight
+m.AgeatMedal/10,
+--!! why am i only getting whole numbers? am i supposed to be getting floats? 
+--DateSold
+datefromparts(m.OlympicYear, (m.AgeatMedal/6), (m.AgeatMedal/4))
 
 from RecordKeeperDB.dbo.Medalist m
 
 
 --test constraints (bad data)
---ChocType not null / ck_Chocolate_type_must_be_solid_block_or_chocolate_troufles_or_chocolate_candy_bar
+--ChocolateType not null / ck_Chocolate_type_must_be_solid_block_or_chocolate_troufles_or_chocolate_candy_bar
 --union select null
 --union select 'troufles'
-
-
-
+--Flavor must be 'Caramalized white chocolate', 'Milk Chocolate Hazelnut Esspresso', 'Dark 54 Chocolate Rasberry Pomegranate', 'Dark salted caramel', or 'milk creme & Dark Creme'
+--union select 'Solid Block', 'Milk White Chocolate'
+--shape must be ('heart','oval','square','oracle','ripple','thimble')
+--union select 'Solid Block', 'Dark Salted Caramel', 'diamond'
+--RecipeSource may not be blank
+--union select 'Solid Block', 'Dark Salted Caramel', 'ripple', ''
+-- test YearPutonMarket must be from 1840 and on
+--union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1799
+-- (ChocolateWeight between 1.00 and 6.00)
+--union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1900, 0
+--union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1900, 7
+--datesold 
+--!! what is constraint??
+--date_sold_must_be_greater_or_equal_to_year_put_on_market
+--union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1900, 6, '05/04/1899'
 
 
 select * from Chocolate c
