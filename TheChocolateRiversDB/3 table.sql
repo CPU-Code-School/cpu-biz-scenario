@@ -6,7 +6,7 @@ go
 create table dbo.Chocolate(
     ChocolateID int not null identity primary key, 
    
---ChocolateName as concat(Shape, ' Shaped ', Type)
+ChocolateName as concat(Shape, ' Shaped ', ChocolateType),
 ChocolateType varchar(20) not null 
     constraint ck_Chocolate_chocolate_type_must_be_solid_block_or_chocolate_troufles_or_chocolate_candy_bar check(ChocolateType in  ('Solid Block', 'Chocolate Trouffles', 'Chocolate Candy Bar')),
 Flavor varchar(38) not null
