@@ -1,16 +1,18 @@
 /*  
-First of all thank you for doing this job. 
-I am confident your company is the perfect choice for the work I need to have done.
+First of all thank you for doing this job. I am confident your company is the perfect choice for the work I need to have done.
+
 I have been running a small cleaning business since January 15, 2017 called Spruce Up.
-Recently, due to COVID-19, there have been many changes to keep track of - many have chosen my service to keep the virus from their house, 
-and unfortunately, a few of my elderly customers have dropped my service because of their fear of letting people potentially carrying the virus into their house.
+Recently, due to COVID-19, there have been many changes to keep track of - many have chosen my service to keep the virus from their house.
+Unfortunately, a few of my elderly customers have dropped my service because of their fear of letting people potentially carrying the virus into their house.
 I feel like I'm now at a point where it's neccessary to store my records electronically so i can keep track of everything in a more orderly and accurate way.
-First of all, i need the first and last names of my customers as well as their phone number and address. 
-I offer weekly or bi weekly(once every two weeks) cleaning. 
+
+First of all, I need the first and last names of my customers as well as their phone number and address. 
+I offer weekly or bi weekly (once every two weeks) cleaning. 
 I have worked out with each customer a specific rate to charge per hour depending on how cluttered the house is or how hard it is to clean. 
 I would also like a column for the number of hours I have calculated to be the average time I spend cleaning each house. 
 In addition I would like a column that computes how much money I earn from each customer at the end of the month.
 The other thing I need to include is the date I started working for each customer as well as an end date for those who have chosen to discontinue my cleaning service.
+
 Question: Did you start cleaning for any of your customers before the official start of your business in 2017?
 Answer: I did do a bit of cleaning for friends before then, which is what inspired me to start the business. 
     None of these people, however, are in my records. I help them out as a friend every now and then for no cost. 
@@ -26,7 +28,8 @@ Answer: All my jobs are local so I only need to know the house number, and stree
 Question: Do you take any time off work?
 Answer: Every so often I take a couple days off, but I always add customers to different days 
         so by the end of the year the weekly customers have 52 services and the bi weekly 26 services.
-reports
+        
+Reports:
 1) I offer deep cleans for each customer on request. Deep cleans take twice as long as normal cleans.
    I charge 50% more than a regular clean in that house. 
    For this I need to see the customers phone number, last name and the amount of money they will have to pay.
@@ -38,6 +41,7 @@ reports
 4) Which customer do I earn the most money from in a year? (not counting deep cleans)
    And how much do I get from them?
 5) How many customers did I gain in the year 2020 and how many did I lose?
+
 These are my customers: 
 first name, last name, phone number, address, frequency, start date, end date, price per hour, hours
 Tara, Hughes, 727 456 2346, 3478 71st Ave N, bi weekly, $25, 5, 04-04-2017, null
