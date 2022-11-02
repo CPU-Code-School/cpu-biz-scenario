@@ -5,13 +5,12 @@ I need an organized database which will include the following: soldier's name, S
 service unit (military branch), Rank in the unit, IQ level.
 
 Reports needed:
-1) Show list of all soldiers with al details sorted by IQ level from high to low.
-2) I need a list of all soldiers sorted by age at enlistment from high to low, Do not include columns that are not relevant to this list.
-3) Following an upward trend in recruitment since the outbreak of Covid, I need data on recruitment between the years 2017-2019 compared to the years 2020-2022
-    in the following format:Year Range (2017-2019/2020-2022), First Name Last Name - SSN (date of enlistment), service unit.
-    (This shuold be done by using a union select and adding a literal column for year range.)
+1) Show a list of all soldiers with all details sorted by IQ level from high to low.
+2) I need a list of all soldiers sorted by age at enlistment from high to low. Do not include columns that are not relevant to this list.
+3) Following an upward trend in recruitment since the outbreak of Covid, I need data on recruitment between the years 2017-2019 compared to the years 2020-2022.
+   The format should be as follows :Year Range (2017-2019/2020-2022), First Name Last Name - SSN (date of enlistment), service unit.
+   (This should be done by using a union select and adding a literal column for year range.)
 4) I need to know what the average IQ level is for soldiers per service unit.
-
 
 Q:At what age can you enlist in the army?
 A:From the age of 17.
