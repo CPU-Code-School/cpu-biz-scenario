@@ -1,44 +1,41 @@
 /*
-I have an airline called 'Fly Air' and flights are getting booked 
-but I can't keep track on how many people I have on each flight? and who's flying?
+I have an airline called 'Fly Air'. Flights are getting booked, but I can't keep track of how many people I have on each flight and who's flying.
 
-Each flight has a flight number on each route for each time they leave, and I can have multiple flights a day on the same route,
-so I would need to keep track on how many people have booked on each flight,
-when you book the flight you would only need to provide your name and DOB and address 
-but in order to be checked in and travel we need the passport details as passport number, date of issue, expiry date, and nationality.
+Each flight has a flight number on each route for each time they leave. 
+I can have multiple flights a day on the same route, so I would need to keep track of how many people I have booked on each flight.
+When you book the flight you would only need to provide your name, DOB and address, but in order to be checked in and travel, we need the passport details. 
+The details should be provided as: passport number, date of issue, expiry date, and nationality.
 
-The reports I need is as following:
-    1) How many people booked per flight, as flight number, departure airport, when the flight is departing, destination.
+The reports I need are as following:
+    1) How many people are booked per flight as: count of people, flight number, departure airport, when the flight is departing and destination.
     2) Who isn't checked in for flights departing in the next week, in order to send them reminders to check in.
     3) How many flights are departing per day, and num of passengers we have on those flights.
     4) How many flights are departing per destination, and num of passengers we have on those flights, to know what route is attracts most people.
-    5) How many people booked but in the end they didn't travel.
-    6) How many flights does each person have (to know for frequent flyer status), as last name, first name, number of flights.
+    5) How many people booked but didn't actually travel in the end.
+    6) How many flights does each person have (to know for frequent flyer status), as: last name, first name, number of flights.
 
 Question: What's the flight numbers you use?
 Answer: We have three letters from our name 'FLY' and then 3 digits starting from 001.
 
 Question: What age are your passengers?
-Answer: The law requires that passengers on our flights must all be adults, 
-    so we require they should be at least 16 years old, but we would allow if they turn 16 that year.
-    And the oldest we would allow is 90 for medical reasons.
+Answer: The law requires that passengers on our flights must all be adults, so we require they should be at least 16 years old.
+We would allow passengers who turned 16 that year. The oldest we allow is 90 for medical reasons.
 
 Question: What type of passports do your passengers have?
-Answer: All passengers that are traveling with us have passports that has 9 digits in it and starts with any digit except 0.
+Answer: All passengers that are traveling with us have passport numbers that have 9 digits in it and start with any digit except 0.
 
 Question: Can you book 2 seats for 1 passenger?
 Answer: No, you can only have 1 seat per passenger per flight.
 
 Question: How old can a passport be in order to travel?
-Answer: Depends if the destination is in same country, it will just need to be valid.
-    Same will be if destination is to home country.
-    But if it's a international flight, it needs to be maximum 9 years and 6 month after it was issued.
-    But bare in mind that a passport that is from before 16 years old is just for 5 years.
+Answer: That depends. If the destination is in same country, the passport just needs to be valid. The same applies if the destination is to the passport's country. 
+If it's an international flight and not to the passport's country, it can be used up until 9 years and 6 month after it was issued.
+But bear in mind that a passport issued to someone before the age of 16 is only valid for 5 years.
 
-Question: How long before flight can you book?
+Question: How long before a flight can you book?
 Answer: Up to 1 year before the flight, check in opens 30 days before departure.
 
-Sample data in following direction: 
+Sample data: 
     Flight number, Departure Airport, Country, Arrival Airport, Country, Time Departing, Time Arriving, Name, DOB (dd/mm/yyyy), Address, (Passport number, Issue date, Expiry date, Nationality) if provided
     FLY001, LHR, UK, JFK, USA, 10/12/2021 8:00AM, 10/12/2021 12:00PM, John Major, 31/12/2000, 22 Queens Road, 175478100, 10/09/2016, 10/09/2026, UK
     FLY002, JFK, USA, LHR, UK, 31/12/2021 3:00PM, 01/01/2022 2:30PM, John Major, 31/12/2000, 22 Queens Road
