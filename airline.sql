@@ -43,6 +43,5 @@ Sample data:
     FLY003, LGW, UK, TLV, Israel, 20/01/2022 7:55PM, 21/01/2022 3:00AM, Mike Markowicz, 09/12/1970, 45 Baker Street
     FLY004, TLV, Israel, LGW, UK, 09/10/2020 6:40AM, 09/10/2020 9:30AM, Nick Smith, 27/03/1998, 29 London Avenue
     FLY004, TLV, Israel, LGW, UK, 09/10/2020 6:40AM, 09/10/2020 9:30AM, John, Smith, 20/10/2004, 29 London Avenue, 209989911, 10/09/2018, 10/09/2023, UK
-    FLY101, EWR, USA, TLV, Israel, 05/01/2021 9:00AM, 06/01/2021 2:30AM, Jack, Marks, 27/03/1995, 12 Ross Street
-
+    FLY101, EWR, USA, TLV, Israel, 05/01/2021 9:00AM, 06/01/2021 2:30AM, Jack, Marks, 27/03/1995, 12 Ross Street=
 */
