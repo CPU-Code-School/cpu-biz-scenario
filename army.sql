@@ -12,12 +12,14 @@ Reports needed:
    (This should be done by using a union select and adding a literal column for year range.)
 4) I need to know what the average IQ level is for soldiers per service unit.
 
-Q:At what age can you enlist in the army?
-A:From the age of 17.
-Q:Which units can the soldiers be in?
-A:I centralize the soldiers' lists only in units: Navy, Land and Air
-Q:Are there certain IQs who are not accepted into the service?
-A:No, the IDF will also find a role for those with a low level of intelligence
+Question:At what age can you enlist in the army?
+Answer:From the age of 17.
+
+Question:Which units can the soldiers be in?
+Answer:I centralize the soldiers' lists only in units: Navy, Land and Air
+
+Question:Are there certain IQs who are not accepted into the service?
+Answer:No, the IDF will also find a role for those with a low level of intelligence
 
 Sample Data:
 Ron, Aviad, 54876373-2, 01/01/2000, Caesarea, 01/03/2021, Air Force, sergeant 95
