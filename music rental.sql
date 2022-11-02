@@ -4,33 +4,27 @@ People rent instruments from me for short periods of time.
 I need a system that will help keep track of all my instruments. 
 I need to know the name of the instrument, category, and cost of renting it per month. 
 
-Each instrument I own has a unique ID that I need to know as well. The ID is the first 3 letters of 
-the intrument name and first 3 letters of instrument category.
-
-If the instrument has been returned already, I need to know the total profit I made (assuming there was no expenses involved)
-
+Each instrument I own has a unique ID that I need to know as well. The ID is the first 3 letters of the intrument name and first 3 letters of instrument category.
+If the instrument has been returned already, I need to know the total profit I made (assuming there was no expenses involved).
 I also need to know the date rented and the date returned.
+In addition, I need to know the name of the customer.
+One more thing I need is the date and time the rental was inserted into the system (for records purposes)
 
-In addition, I need to know the name  of customer.
-
-One more thing - the date and time the rental was inserted into the system (for records purposes)
-
-Is there a min and/or max amount of months to the rental?
-Yes - min is one month and max is 12 months. After 12 months, the rental contract needs to be renewed again. 
+Question: Is there a min and/or max amount of months to the rental?
+Answer: Yes - min is one month and max is 12 months. After 12 months, the rental contract needs to be renewed again. 
 (But the customer can rent the same instrument again)
 
-Can a customer rent an instrument in advance?
-No - he has to come into the store and do it then.
+Question: Can a customer rent an instrument in advance?
+Answer: No - he has to come into the store and do it then.
 
-Do you have more than one of each type of instrument?
-Yes, I have many of the more popular instruments.
+Question: Do you have more than one of each type of instrument?
+Answer: Yes, I have many of the more popular instruments.
 
 Reports:
-1) I need to know if I have any repeat customers and what they rented
-2)I need to know the most popular category of instrument that has ever been rented
-3) I need to know which instrument (that is not being currently rented) made the most profit
-4) I need to know which instruments were rented for only one month (so I could know if I should just sell
-them off)
+1) I need to know if I have any repeat customers and what they rented.
+2) I need to know the most popular category of instrument that has ever been rented.
+3) I need to know which instrument (that is not being currently rented) made the most profit.
+4) I need to know which instruments were rented for only one month (so I could know if I should just sell them off).
 
 Sample Data:
 CustomerName, Instrument, Category, MonthlyRentalFee, DateRented, DateReturned
