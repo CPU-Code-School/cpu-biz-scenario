@@ -23,6 +23,7 @@ Weight(oz.) decimal(3.2) not null must be between 1 and 6
 DateSold date not null
 must be less than _________
 --! what date was the last date of sale for willy wonka? doesn't need start day constraint bc must be greateer than or equl to yearput on makret
+--!!get date
 ExpirationDate not null computed to 5 years after datesold
 
 multi column constraints

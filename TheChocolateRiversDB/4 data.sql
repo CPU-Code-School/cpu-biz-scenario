@@ -15,16 +15,11 @@ end,
 --Flavor
 case
 when m.SportSubCategory like '%ladies%' or m.SportSubCategory like '%women%' then 'Caramalized white chocolate'
--- !!more consize whay to do like statment? 
--- !! should I take away the wild card in beginging of all applicable data starts with ladies/or women? (ALSO APPLIES FOR MEN LIKE BELOW)
 when m.SportSubCategory like '%men%' then 'Milk Chocolate Hazelnut Esspresso'
 when m.SportSubcategory like '%[0-9]%' then 'Dark 54 Chocolate Rasberry Pomegranate'
 when m.SportSubcategory like '% %' then 'milk creme & Dark Creme'
 else 'Dark salted caramel'
 end,
---!! is this sufficinent for measurment? 
---!! is it okay changed order of chocolate flavor -- is there a way to specify one word? 
---!! what does owner of chocrivers want in terms of capitalzing words?
 --Shape
 case  
 when m.AgeatMedal between  14 and 16 then 'heart'
@@ -41,7 +36,7 @@ m.Country,
 m.YearBorn,
 --ChocolateWeight
 m.AgeatMedal/10,
---!! why am i only getting whole numbers? am i supposed to be getting floats? 
+--!! why am i only getting whole numbers? am i supposed to be getting floats? convert to decimal int > decimal, decimal can't be converted to int
 --DateSold
 datefromparts(m.OlympicYear, (m.AgeatMedal/6), (m.AgeatMedal/4))
 
