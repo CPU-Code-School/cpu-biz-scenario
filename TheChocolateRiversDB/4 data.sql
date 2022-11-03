@@ -8,17 +8,17 @@ insert Chocolate (ChocolateType, Flavor, Shape, RecipeSource, YearPutonMarket, C
 select 
 --ChocolateType
 case  m.Medal 
-when 'gold' then 'Solid Block'
-when 'silver' then 'Chocolate Trouffles'
-when 'bronze' then 'Chocolate Candy Bar'
+when 'gold' then 1
+when 'silver' then 2
+when 'bronze' then 3
 end,
 --Flavor
 case
-when m.SportSubCategory like '%ladies%' or m.SportSubCategory like '%women%' then 'Caramalized white chocolate'
-when m.SportSubCategory like '%men%' then 'Milk Chocolate Hazelnut Esspresso'
-when m.SportSubcategory like '%[0-9]%' then 'Dark 54 Chocolate Rasberry Pomegranate'
-when m.SportSubcategory like '% %' then 'milk creme & Dark Creme'
-else 'Dark salted caramel'
+when m.SportSubCategory like '%ladies%' or m.SportSubCategory like '%women%' then 1
+when m.SportSubCategory like '%men%' then 2
+when m.SportSubcategory like '%[0-9]%' then 3
+when m.SportSubcategory like '% %' then 5
+else 4
 end,
 --Shape
 case  
@@ -58,8 +58,8 @@ from RecordKeeperDB.dbo.Medalist m
 -- (ChocolateWeight between 1.00 and 6.00)
 --union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1900, 0
 --union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1900, 7
---datesold 
---!! what is constraint??
+--datesold ck_Chocolate_date_sold_cannot_be_future_date
+--union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1900, 6, '05/04/2030'
 --date_sold_must_be_greater_or_equal_to_year_put_on_market
 --union select 'Solid Block', 'Dark Salted Caramel', 'ripple', 'USA', 1900, 6, '05/04/1899'
 
