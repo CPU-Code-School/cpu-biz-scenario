@@ -16,20 +16,20 @@ group by i.CustomerName, i.InstrumentName
 having COUNT(i.CustomerName)>2
 
 --2
-select top 1 NumOfRentals =count(i.InstrumentName), i.InstrumentName
+select top 1 NumOfRentals =count(i.category), i.category
 from Instrument i
-group by i.InstrumentName
-order by NumOfRentals
+group by i.category
+order by NumOfRentals desc
 
 --3
 select top 1 SumOfProfit=sum(i.TotalProfit), i.InstrumentName
 from Instrument i
-where i.TotalProfit is not null
+where i.datereturned is not null
 group by i.InstrumentName
 order by SumOfProfit desc
 
 --4
-select i.InstrumentName, RentalMonths =avg(datediff(month, DateRented ,DateReturned))
+select i.InstrumentName, MonthsOfRental =(datediff(month, DateRented ,DateReturned))
 from Instrument i
-group by i.InstrumentName
-having avg(datediff(month, DateRented ,DateReturned)) =1
+group by i.InstrumentName, (datediff(month, DateRented ,DateReturned))
+having datediff(month, DateRented ,DateReturned) <=1
