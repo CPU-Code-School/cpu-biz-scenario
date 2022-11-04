@@ -1,5 +1,5 @@
 use master
 GO
-drop DATABASE if EXISTS CostumeDB
+drop DATABASE if EXISTS RealEstateDB
 GO
-create DATABASE CostumeDB 
+create DATABASE RealEstateDB 

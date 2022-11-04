@@ -51,7 +51,8 @@ Reports:
 
 Sample data:
 5 Lynn Drive, Toms River, Colonial, 4 Bdrms, 2.5 baths, house-3000, lot-42000 , Owner - Lynn Drive, LLC , Client- Yaakov Fishman, Realtor - Rivka Harnik, 1/12/2021, 2/22/2021, asking-450k, sold 475k, buyer-Rachel Gestetner
-8 London Drive, Lakewood, Ranch, 3 bdrms, 2 baths, house-2000, lot - 4089, owner-Shaindy Braun, Client-Shaindy Braun, realtor, Raizy Berger, 4/5/2009, 7/10/2010, asking 200k, sold 200k, buyer-Elazar and Faigy Adler
+8 London Drive, Lakewood, Ranch, 3 bdrms, 2 baths, house-2000, lot - 4089, owner-Shaindy Braun, Client-Shaindy Braun, realtor, Raizy Berger, 4/5/2009, 7/10/2
+010, asking 200k, sold 200k, buyer-Elazar and Faigy Adler
 423 2nd Street, Lakewood, Colonial, 9 bdrms, 5.5 baths, house 3500, lot-4200, owner- L3C Jackson, LLC, client-Mark Farkas, Rivka Harnik, 1/6/2015, 6/9/2015, asking 360k, sold 370k, buyer Yossi Handler and Rivky Handler
 176 Hadassah Lane, Lakewood, duplex, 5 bdrms, 2.5 baths, house-2550, lot-3049.2 , Greenview Equities, LLC, shlomo press, Moshe Celnik, 5/3/2021, not sold, asking 549k, selling 600k, buyer Shea Speigel, under contract
 1141 Central Avenue, Lakewood, ranch, 3 bdrms, 1 bath, house-855, lot-5000, Sorah Hager, Yitzchok Tendler, Moshe Celnik, 1/2/2022, not sold, asking 300k, not in contract
