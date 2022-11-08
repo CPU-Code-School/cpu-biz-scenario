@@ -23,16 +23,17 @@ when 5 then 'milk creme & Dark Creme'
 end,
 Shape varchar(7) not null
 constraint ck_Chocolate_Shape_must_be_heart_or_oval_or_square_or_oracle_or_ripple_or_thimble check (Shape in ('heart','oval','square','oracle','ripple','thimble')),
-ChocolateName as concat(Shape, ' Shaped ', ChocolateType),
+--ChocolateName as concat(Shape, ' Shaped ', ChocolateTypeDesc, ' ', FlavorDesc, '.'),
+--!! big issue - desc columns are computed but choc name is also and can't reference computed column in another computed column
 RecipeSource varchar(30) not null
   constraint ck_Chocolate_recipe_source_may_not_be_blank check(RecipeSource <> ''),
-YearPutonMarket int not null
-  constraint ck_Chocolate_year_put_on_market_must_be_from_1840_to_current_date check (YearPutonMarket >= 1840 and YearPutonMarket <= getdate()),
+YearPutOnMarket int not null
+  constraint ck_Chocolate_year_put_on_market_must_be_from_1840_to_current_date check (YearPutOnMarket between 1840 and getdate()),
 ChocolateWeight decimal(3,2) not null
   constraint ck_Chocolate_chocolate_weight_must_be_between_1_point_00_and_6_point_00 check (ChocolateWeight between 1.00 and 6.00),
-DateSold date not null
+DateSold date 
   constraint ck_Chocolate_date_sold_cannot_be_future_date check (DateSold <= getdate()),
 ExpirationDate as dateadd(year, 5, DateSold), 
-Constraint ck_Chocolate_date_sold_must_be_greater_or_equal_to_year_put_on_market check(year(DateSold) >= YearPutonMarket)
+Constraint ck_Chocolate_date_sold_must_be_greater_or_equal_to_year_put_on_market check(year(DateSold) >= YearPutOnMarket)
 )
 
