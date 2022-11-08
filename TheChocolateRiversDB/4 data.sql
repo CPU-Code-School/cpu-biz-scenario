@@ -4,7 +4,7 @@ go
 delete Chocolate
 go
 
-insert Chocolate (ChocolateType, Flavor, Shape, RecipeSource, YearPutonMarket, ChocolateWeight, DateSold)
+insert Chocolate (ChocolateType, Flavor, Shape, RecipeSource, YearPutOnMarket, ChocolateWeight, DateSold)
 select 
 --ChocolateType
 case  m.Medal 
@@ -32,7 +32,7 @@ end,
 --RecipeSource
 m.Country,
 -- !! spec doesn't give source, assumed country 
---YearPutonMarket
+--YearPutOnMarket
 m.YearBorn,
 --ChocolateWeight
 m.AgeatMedal/10,

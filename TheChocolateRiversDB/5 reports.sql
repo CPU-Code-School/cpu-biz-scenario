@@ -4,17 +4,17 @@ Reports:
 sitting on the shelf before it was sold (per chocolate flavor and chocolateType)? overall which flavor
 was on the shelf the longest? which the shortest?
 */
-select c.chocolateTypeDesc, c.FlavorDesc, AvgTimeonShelf = Avg(year(c.datesold) - c.YearPutonMarket),MaxTimeonShelf = Max(year(c.datesold) - c.YearPutonMarket), MinTimeonShelf = Min(year(c.datesold) - c.YearPutonMarket)
+select c.chocolateTypeDesc, c.FlavorDesc, AvgTimeonShelf = Avg(year(c.datesold) - c.YearPutOnMarket),MaxTimeonShelf = Max(year(c.datesold) - c.YearPutOnMarket), MinTimeonShelf = Min(year(c.datesold) - c.YearPutOnMarket)
 from Chocolate c
 group by c.FlavorDesc, c. ChocolateTypeDesc
 /*
 2)Can you print out a list as of January first 1917 which chocolate were put on the shelf but not yet sold.They got sold within the next 17 years.
 show the pieces in this order: Chocolate Name,yearPutOnShelf,DateSold,#Yearsold(the year it got sold after this point)
 */
-select c.ChocolateName, c.YearPutonMarket, c.DateSold, NumYearSold = year(c.DateSold) - c.YearPutonMarket
+select /*c.ChocolateName,*/ c.YearPutOnMarket, c.DateSold, NumYearSold = year(c.DateSold) - c.YearPutOnMarket
 from Chocolate c
-where c.YearPutonMarket >= 1917
-and year(c.DateSold) - c.YearPutonMarket <= 17
+where c.YearPutOnMarket >= 1917
+and isnull(year(c.DateSold), 0) - c.YearPutOnMarket <= 17
 
 
 
@@ -32,4 +32,5 @@ case
 end
 )
 from Chocolate c
+
 
