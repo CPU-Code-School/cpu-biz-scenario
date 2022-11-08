@@ -19,10 +19,10 @@ order by AgeAtenlistment desc
   --  in the following format:Year Range (2017-2019/2020-2022), First Name Last Name - SSN (date of enlistment), service unit.
    -- (This shuold be done by using a union select and adding a literal column for year range.)
 
-select YearRange ='2017-2019',a.FirstName, a.LastName, a.SSN, a.DateofEnlistment, a.ServiceUnit
+select ArmyData= concat ('2017-2019',', ' ,a.FirstName,' ', a.LastName,' - ', a.SSN, ' (', a.DateofEnlistment,')', ' ', a.ServiceUnit)
 from army a
 where YEAR (a.DateOfEnlistment) between 2017 and 2019 
-union select YearRange ='2020-2022',a.Firstname, a.lastname, a.ssn, a.dateofenlistment, a.ServiceUnit
+union select concat ('2020-2022',', ' ,a.FirstName,' ', a.LastName,' - ', a.SSN, ' (', a.DateofEnlistment,')', ' ', a.ServiceUnit)
 from army a
 where YEAR (a.DateOfEnlistment) between 2020 and 2022
 
