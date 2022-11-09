@@ -35,6 +35,10 @@ But bear in mind that a passport issued to someone before the age of 16 is only 
 Question: How long before a flight can you book?
 Answer: Up to 1 year before the flight, check in opens 30 days before departure.
 
+Note: Being that the dates are written in UK format, unless you are from the UK paste the following line into your code on top of the data file:
+set dateformat dmy
+go
+
 Sample data: 
     Flight number, Departure Airport, Country, Arrival Airport, Country, Time Departing, Time Arriving, Name, DOB (dd/mm/yyyy), Address, (Passport number, Issue date, Expiry date, Nationality) if provided
     FLY001, LHR, UK, JFK, USA, 10/12/2021 8:00AM, 10/12/2021 12:00PM, John Major, 31/12/2000, 22 Queens Road, 175478100, 10/09/2016, 10/09/2026, UK
