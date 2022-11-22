@@ -31,7 +31,3 @@ date sold <= expiration date --! do we really need this if expiration date is co
 date sold must be >= yearput on market
 
  */
-
---?? can i have a computed column based on columns that come after it? 
---when inserting columns that can be represented with numbers insert as a number but show to the user as the text description.
---! what columns are to be represented with numbers?? ex. flavor, shape, type ???? 

@@ -8,18 +8,19 @@ insert Chocolate (ChocolateType, Flavor, Shape, RecipeSource, YearPutOnMarket, C
 select 
 --ChocolateType
 case  m.Medal 
-when 'gold' then 1
-when 'silver' then 2
-when 'bronze' then 3
+when 'gold' then 'Solid Block'
+when 'silver' then 'Chocolate Trouffles'
+when 'bronze' then 'Chocolate Candy Bar'
 end,
 --Flavor
 case
-when m.SportSubCategory like '%ladies%' or m.SportSubCategory like '%women%' then 1
-when m.SportSubCategory like '%men%' then 2
-when m.SportSubcategory like '%[0-9]%' then 3
-when m.SportSubcategory like '% %' then 5
-else 4
+when m.SportSubCategory like '%ladies%' or m.SportSubCategory like '%women%' then 'Caramalized white chocolate'
+when m.SportSubCategory like '%men%' then 'Milk Chocolate Hazelnut Esspresso'
+when m.SportSubcategory like '%[0-9]%' then 'Dark 54 Chocolate Rasberry Pomegranate'
+when m.SportSubcategory like '% %' then 'milk creme & Dark Creme'
+else 'Dark salted caramel'
 end,
+
 --Shape
 case  
 when m.AgeatMedal between  14 and 16 then 'heart'
