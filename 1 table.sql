@@ -6,7 +6,7 @@ create table dbo.Soldier(
     SoldierID int not null identity primary key,
     FirstName varchar(25) not null constraint ck_Soldier_first_name_cannot_be_blank check(FirstName <> ''),
     LastName varchar(25) not null constraint ck_Soldier_last_name_cannot_be_blank check(LastName <> ''),
-    SSN char(10) not null constraint ck_Soldier_SSN_cannot_be_blank check(SSN <> ''),
+    SSN char(10) not null constraint ck_Soldier_SSN_cannot_exceed_10_digits_and_cannot_have_letters check(SSN like ('[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]')),
     DOB date not null,
     PlaceOfResidence varchar(40) not null constraint ck_Soldier_place_of_residence_cannot_be_blank check(PlaceOfResidence <> ''),
     DateEnlisted date not null 
