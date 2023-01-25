@@ -17,6 +17,3 @@ union select 'Bracha', 'Ganz', 'Princess', 'M', 4, 25.00, '11/3/2020', '12/12/20
 union select 'Yaakov', 'Cohen', 'Princess', 'XS', 1, 20.00, '12/4/2021', '7/25/2022'
 union select 'Rina', 'Rosen', 'Artist', 'M', 1, 25.00, '2/18/2022', '5/28/2022'
 union select 'Rivkah', 'Goldberger', 'zebra', 'S', 1, 22.00, '9/14/2022', '12/29/2022'
-
-select *
-from Costume c

@@ -1,11 +1,3 @@
-/*
-I am going to need the following reports:
-1. I need to know which costume is the most popular.
-2. I need to know which size is the most polpular.
-3. I need you to show me all of my customers in the following format: name: amountbought - costume customer bought (how much they paid)
-4. I need to know the profit each sale.
-*/
-
 use CostumeStoreDB
 
 --1. I need to know which costume is the most popular.
