@@ -14,9 +14,9 @@ create table dbo.Costume(
         constraint c_Costume_size_must_be_XS_S_M_L_or_XL check(Size in('XS', 'S', 'M', 'L', 'XL')),
     AmountBought int not null
         constraint c_Costume_amount_bought_must_be_greater_than_zero check(AmountBought > 0),
-    CostPricePerCostume int not null
+    CostPricePerCostume decimal(4,2) not null
         constraint c_Costume_cost_price_per_costume_must_be_15_17_20_22_or_25 check(CostPricePerCostume in(15, 17, 20, 22, 25)), 
-    SoldPricePerCostume int not null,
+    SoldPricePerCostume decimal(4,2) not null,
     PaidFullPrice bit,
     DateBought date not null
         constraint c_Costume_date_bought_cannot_be_earlier_than_2020_1_1 check(DateBought >= '2020/1/1'),
