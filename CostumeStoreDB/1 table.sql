@@ -12,18 +12,18 @@ create table dbo.Costume(
     Size varchar(2) not null constraint ck_Costume_Size_must_be_one_of_the_size_options check(Size in ('XS', 'S', 'M', 'L', 'XL')),
     SoldQuantity int not null constraint ck_Costume_SoldQuantity_must_be_greater_than_zero check(SoldQuantity > 0),
     PurchaseDate date not null constraint ck_Costume_PurchaseDate_must_be_after_Jan_1_2020 check(datefromparts(2020, 1, 1) < PurchaseDate),
-    SoldDate date not null,
+    SoldDate date not null constraint ck_Costume_Sold_Date_cannot_be_in_the_future check(getdate() >= SoldDate),
     PurchasePrice as case Size when 'XS' then 15.00 when 'S' then 17.00 when 'M' then 20.00 when 'L' then 22.00 when 'XL' then 25.00 end persisted,
     --BG I didnt do the SoldPrice as a case on size because she may sell to a friend or family member for cost price, as per the spec
     SoldPrice decimal(4,2) not null,
     CustomerTotalPrice as SoldPrice * SoldQuantity persisted,
     SoldPriceFull as case
-    when Size = 'XS' and SoldPrice = 20.00 then 'Yes'
-    when Size = 'S' and SoldPrice = 22.00 then 'Yes'
-    when Size = 'M' and SoldPrice = 25.00 then 'Yes'
-    when Size = 'L' and SoldPrice = 27.00 then 'Yes'
-    when Size = 'XL' and SoldPrice = 30.00 then 'Yes'
-    else 'No'
+    when Size = 'XS' and SoldPrice = 20.00 then 0
+    when Size = 'S' and SoldPrice = 22.00 then 0
+    when Size = 'M' and SoldPrice = 25.00 then 0
+    when Size = 'L' and SoldPrice = 27.00 then 0
+    when Size = 'XL' and SoldPrice = 30.00 then 0
+    else 1
     end persisted,
     constraint ck_Costume_SoldDate_must_be_after_PurchaseDate check(SoldDate > PurchaseDate),
     constraint ck_Costume_SoldPrice_cannot_be_less_than_PurchasePrice check(SoldPrice >= PurchasePrice)
