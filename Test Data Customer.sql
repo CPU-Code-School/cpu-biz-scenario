@@ -107,6 +107,10 @@ Insert Customer(CustomerFirstName, CustomerLastName, CostumeBought, CostumeSize,
 select 'Chana', 'Goldberg', 'Artist', 'XS', 2, 15, 14, 1, '02/14/2020', '04/02/2020'
 Insert Customer(CustomerFirstName, CustomerLastName, CostumeBought, CostumeSize, AmountBought, CostPricePerCostume, SoldPricePerCostume, FullPrice, DateBought, DateSold)
 select 'Chana', 'Goldberg', 'Artist', 'XS', 2, 15, 15, 1, '02/14/2020', '04/02/2020'
+Insert Customer(CustomerFirstName, CustomerLastName, CostumeBought, CostumeSize, AmountBought, CostPricePerCostume, SoldPricePerCostume, DateBought, DateSold)
+select 'Chana', 'Goldberg', 'Artist', 'XS', 2, 17, 20, '02/14/2020', '04/02/2020'
+Insert Customer(CustomerFirstName, CustomerLastName, CostumeBought, CostumeSize, AmountBought, CostPricePerCostume, SoldPricePerCostume, DateBought, DateSold)
+select 'Chana', 'Goldberg', 'Artist', 'XL', 2, 17, 20, '02/14/2020', '04/02/2020'
 */
 
 --Test Correct Data

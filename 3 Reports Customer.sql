@@ -1,5 +1,6 @@
 Use CostumeBusinessDB
 go
+
 /*
 I am going to need the following reports:
 	1. I need to know which costume is the most popular.
@@ -26,6 +27,6 @@ from Customer c
 order by c.CustomerFirstName
 
 --4)
-select c.CustomerFirstName, c.CustomerLastName, c.TotalProfit
+select c.CustomerFirstName, c.CustomerLastName, TotalProfit = (SoldPricePerCostume - CostPricePerCostume) * AmountBought
 from Customer c 
-order by c.TotalProfit desc 
+order by TotalProfit desc  
