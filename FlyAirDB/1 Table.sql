@@ -26,8 +26,8 @@ create table dbo.FlightInfo (
     Nationality varchar(30) null constraint ck_FlightInfo_Nationality_cannot_be_blank check(Nationality > ''),
     constraint ck_FlightInfo_CheckedIn_can_only_occur_30_days_from_departure
         check((datediff(day,getdate(),DepartingDateTime) > 30 and CheckedIn = 0) or datediff(day,getdate(),DepartingDateTime) < 30),
-    constraint ck_FlightInfo_ArrivalDateTime_must_be_after_depaurturedatetime_and_less_then_2_days_later
-        check(ArrivingDateTime between DepartingDateTime and DepartingDateTime + 2), --ADD constraint 35 hours to arriving datetime 
+    constraint ck_FlightInfo_ArrivalDateTime_must_be_after_depaurturedatetime_and_less_then_3_days_later
+        check(ArrivingDateTime between DepartingDateTime and DepartingDateTime + 3), 
     constraint ck_FlightInfo_DOB_must_be_between_16_and_90_by_departure_date check(datediff(day,DOB,DepartingDateTime) between 5840 and 32850),
     ---There doesnt seem to be a completely accurate way to do it, as even using 365 days is not completly accurate, and definitly not years which only show how many times the year has changed
     constraint ck_FlightInfo_IssueDate_not_valid check(IssueDate < ExpiryDate and IssueDate >= DOB),
