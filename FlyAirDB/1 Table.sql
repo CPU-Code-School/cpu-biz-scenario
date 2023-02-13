@@ -34,7 +34,7 @@ create table dbo.FlightInfo (
         constraint ck_FlightInfo_ExpiryDate_not_valid_for_travel 
         check(((DepartureCountry = ArrivingCountry or Nationality = ArrivingCountry or datediff(year,DOB,IssueDate) < 16) and ExpiryDate >= DepartingDateTime) 
             or datediff(day,DepartingDateTime,ExpiryDate) > 182),
-    constraint u_PassportNum_can_only_have_one_seat_on_flight unique(PassportNum,FlightNum,DepartingDatetime),
+    constraint u_PassportNum_can_only_have_one_seat_on_flight unique(PassportNum,FlightNum,DepartingDatetime,FirstName,LastName),
     constraint ck_FlightInfo_PassportNum_and_all_passport_info_must_be_null_or_not_null 
         check((PassportNum is null and IssueDate is null and ExpiryDate is null and Nationality is null) 
         or (PassportNum is not null and IssueDate is not null and ExpiryDate is not null and Nationality is not null)),
