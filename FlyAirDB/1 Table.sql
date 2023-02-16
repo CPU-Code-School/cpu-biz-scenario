@@ -28,11 +28,12 @@ create table dbo.FlightInfo (
         check((datediff(day,getdate(),DepartingDateTime) > 30 and CheckedIn = 0) or datediff(day,getdate(),DepartingDateTime) < 30),
     constraint ck_FlightInfo_ArrivalDateTime_must_be_after_depaurturedatetime_and_less_then_3_days_later
         check(ArrivingDateTime between DepartingDateTime and DepartingDateTime + 3), 
-    constraint ck_FlightInfo_DOB_must_be_between_16_and_90_by_departure_date check(datediff(year,DOB,DepartingDateTime) between 16 and 90),
+    constraint ck_FlightInfo_DOB_must_be_between_16_and_90_by_departure_date 
+        check(format(dateadd(day,DATEDIFF(day,DOB,DepartingDateTime),0),'yy') < 90 and datediff(year,DOB,DepartingDateTime) >= 16),
         constraint ck_FlightInfo_IssueDate_not_valid check(IssueDate < ExpiryDate and IssueDate >= DOB),
         constraint ck_FlightInfo_ExpiryDate_not_valid_for_travel 
-        check(((DepartureCountry = ArrivingCountry or Nationality = ArrivingCountry or datediff(year,DOB,IssueDate) < 16) and ExpiryDate >= ArrivingDateTime) 
-            or datediff(day,ArrivingDateTime,ExpiryDate) > 182),
+        check(((DepartureCountry = ArrivingCountry or Nationality = ArrivingCountry) and ExpiryDate >= ArrivingDateTime) 
+            or datediff(day,ArrivingDateTime,IssueDate) < 3470),
     constraint u_PassportNum_can_only_have_one_seat_on_flight unique(PassportNum,FlightNum,DepartingDatetime,FirstName,LastName),
     constraint ck_FlightInfo_PassportNum_and_all_passport_info_must_be_null_or_not_null 
         check((PassportNum is null and IssueDate is null and ExpiryDate is null and Nationality is null) 
@@ -41,5 +42,6 @@ create table dbo.FlightInfo (
         check((PassportNum is null and CheckedIn = 0) or PassportNum is not null)
        
 )
+
 
 
