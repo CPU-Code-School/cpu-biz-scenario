@@ -20,7 +20,14 @@ create table dbo.House(
     DateSold date null constraint c_House_date_sold_must_be_on_or_before_current_date check(DateSold <= getdate()),
     AskingPrice decimal(9,2) not null constraint c_House_selling_price_must_be_between_100000_and_9900000 check(SellingPrice between 100000 and 9900000),,
     SellingPrice decimal(9,2) null constraint c_House_selling_price_must_be_between_100000_and_9900000 check(SellingPrice between 100000 and 9900000),
-    InContract bit null, 
+    InContract as case
+                    when isnull(DateSold) then
+                        case 
+                            when isnull(AskingPrice) then 'not in contract'
+                            else 'in contract'
+                        end
+                    else null
+                  end
     DateInserted date not null,
     constraint c_House_date_inserted_cannot_be_before_date_on_market
     constraint c_House_date_sold_cannot_be_before_date_on_market check(DateSold >= DateOnMarket),
