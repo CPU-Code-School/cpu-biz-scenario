@@ -21,7 +21,8 @@ create table dbo.House(
     AskingPrice decimal(9,2) not null constraint c_House_selling_price_must_be_between_100000_and_9900000 check(SellingPrice between 100000 and 9900000),,
     SellingPrice decimal(9,2) null constraint c_House_selling_price_must_be_between_100000_and_9900000 check(SellingPrice between 100000 and 9900000),
     InContract bit null, 
-
+    DateInserted date not null,
+    constraint c_House_date_inserted_cannot_be_before_date_on_market
     constraint c_House_date_sold_cannot_be_before_date_on_market check(DateSold >= DateOnMarket),
     constraint c_House_selling_price_cannot_be_less_than_asking_price check(SellingPrice >= AskingPrice)
 )
