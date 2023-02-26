@@ -1,11 +1,13 @@
 use RealEstateDb
 
 --1) I want a report of all the houses sorted by the block and then by the town/city
-select * from House h 
+select * 
+from House h 
 order by h.HouseAddress, h.HouseTown
 
 --2) I want a report of all the houses sorted by realtor
-select * from House h 
+select * 
+from House h 
 order by h.Realtor
 
 --3) a report of how long it took for each house to sell
