@@ -16,7 +16,7 @@ create table dbo.House(
     Realtor varchar(25) not null constraint c_House_realtor_cannot_be_blank check(Realtor <> ''),
     Client varchar(25) not null constraint c_House_client_cannot_be_blank check(Client <> ''),
     DateOnMarket date not null,
-    Buyer varchar(50) null constraint c_House_buyer_cannot_be_blank check(Buyer <> ''),
+    Buyer varchar(50) not null constraint d_House_buyer default '',
     DateSold date null constraint c_House_date_sold_must_be_on_or_before_current_date check(DateSold <= getdate()),
     AskingPrice decimal(9,2) not null constraint c_House_selling_price_must_be_between_100000_and_9900000 check(SellingPrice between 100000 and 9900000),,
     SellingPrice decimal(9,2) null constraint c_House_selling_price_must_be_between_100000_and_9900000 check(SellingPrice between 100000 and 9900000),
