@@ -5,7 +5,8 @@ go
 
 create table dbo.House(
     HouseId int not null identity primary key,
-    HouseAddress varchar(50) not null constraint c_House_house_address_cannot_be_blank check(HouseAddress <> ''),
+    HouseNum int not null constraint c_House_house_num_cannot_be_negative check(HouseNum >= 0),
+    HouseStreet varchar(50) not null constraint c_House_house_street_cannot_be_blank check(HouseStreet <> ''),
     HouseTown varchar(25) not null constraint c_House_house_town_cannot_be_blank check(HouseTown <> ''),
     HouseType varchar(20) not null constraint c_House_house_type_must_be_bi_level_colonial_ranch_split_level_duplex_townhouse_apartment_or_vacant_land check(HouseType in('bi-level','colonial','ranch','split-level','duplex','townhouse','apartment','vacant land' )),
     SqrFootOfHouse int not null constraint c_House_sqr_foot_of_house_must_be_greater_than_0 check(SqrFootOfHouse > 0),
