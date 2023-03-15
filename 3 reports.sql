@@ -6,7 +6,7 @@ from soldiers s
 order by IQLevel desc 
 
 --2) I need a list of all soldiers sorted by age at enlistment from high to low. Do not include columns that are not relevant to this list.
-select LastName, FirstName, Age= year(DateOfEnlistment)-year(DOB)
+select LastName, FirstName, Age= DATEDIFF(year, DOB, DateOfEnlistment)
 from soldiers s 
 order by Age desc 
 
@@ -19,6 +19,7 @@ where YearRange = '2017-2019'
 union select Recruitment =concat(YearRange, ', ', FirstName, ' ', LastName, ' - ', SSN, ' ', '(',  DateOfEnlistment, ')', ', ',  ServiceUnit)
 from soldiers s 
 where YearRange = '2020-2022'
+
 
 
 --4) I need to know what the average IQ level is for soldiers per service unit.
