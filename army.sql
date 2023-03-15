@@ -21,6 +21,10 @@ Answer:I centralize the soldiers' lists only in units: Navy, Land and Air
 Question:Are there certain IQs who are not accepted into the service?
 Answer:No, the IDF will also find a role for those with a low level of intelligence
 
+
+Note: Being that the dates are written in Israeli format, unless you are from the Israel/Europe paste the following line into your code on top of the data file:
+set dateformat dmy
+
 Sample Data:
 Ron, Aviad, 54876373-2, 01/01/2000, Caesarea, 01/03/2021, Air Force, sergeant 95
 Shachar, Dotan, 85274136-9, 16/08/2001, Jerusalem, 01/10/2020, Navy, lieutenant colonel, 111
