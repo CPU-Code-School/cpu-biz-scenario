@@ -3,11 +3,11 @@
 --    This will help my company know which college's graduates we should try to attract to our company.
 select e.CollegeAttended, AmntOfStudents = count(*)
 from Educators e 
-where datediff(day, DateContacted, DateFoundJob) < 14
+where datediff(week, DateContacted, DateFoundJob) < 2
 group by e.CollegeAttended
 
 --2. Who were we more successful in placing, males or females?
-select top 1 e.Gender
+select e.Gender, Count = count(*)
 from Educators e 
 where e.DateFoundJob is not null
 group by e.Gender
@@ -31,5 +31,5 @@ where e.DateFoundJob is not null
 group by e.TitleOfDegree
 
 --6. I need a list of the educators who reach out to us in the format of first name, last name, age, - degree.
-select Educators = concat(firstname, ', ', lastname, ', ', (datediff(day, DOB, getdate()))/365,  ', - ', titleofdegree) 
+select Educators = concat(firstname, ', ', lastname, ', ', (datediff(day, DOB, Datecontacted))/365,  ', - ', titleofdegree) 
 from Educators e 
