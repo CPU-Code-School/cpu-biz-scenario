@@ -12,5 +12,5 @@ union select 'Shmuli', 'David', 'Piano', 'Percussion', 65, 'March 23 2019', 'Aug
 union select 'Baila', 'Weitz', 'Trumpet', 'Wind', 53, 'May 03 2020', 'December 29 2020'
 union select 'Hadassah', 'Gruber', 'Guitar', 'String', 42, 'January 03 2020', 'September 28 2020'
 union select 'Rivkala', 'Scheiner', 'Violin', 'String', 40, 'May 24 2021', 'January 01 2022'
-union select 'Chaya Faiga', 'Rothstein', 'Clarinet', 'Wind', 35, 'November 18 2020', 'September 16 2020'
+union select 'Chaya Faiga', 'Rothstein', 'Clarinet', 'Wind', 35, 'November 18 2020', 'September 16 2021'
 union select 'Tehilah', 'Katz', 'Guitar', 'String', 42, 'February 13 2021', 'April 12 2021'

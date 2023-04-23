@@ -14,8 +14,8 @@ MusicRental
     DateReturned not null not future date
     DateInserted datetime not null, default getdate()
     
-    multy constraint columns
-        DateReturned mus be after data rented 
-        either DateReturned are both blank or both full
+    multi constraint columns
+        DateReturned must be after dateRented 
+        either TotalProfit and DateReturned are both null or supplied
         between DateReturned and DateRented there can't be more than 12 months and less than 1 month
 */
