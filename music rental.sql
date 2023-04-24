@@ -21,7 +21,7 @@ Question: Do you have more than one of each type of instrument?
 Answer: Yes, I have many of the more popular instruments.
 
 Reports:
-1) I need to know if I have any repeat customers and what they rented.
+1) I need to know if I have any customers that rented a specific instrument more than once.
 2) I need to know the most popular category of instrument that has ever been rented.
 3) I need to know which instrument (that is not being currently rented) made the most profit.
 4) I need to know which instruments were rented for only one month (so I could know if I should just sell them off).
