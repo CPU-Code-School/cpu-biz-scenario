@@ -16,6 +16,5 @@ MusicRental
     
     multi constraint columns
         DateReturned must be after dateRented 
-        either TotalProfit and DateReturned are both null or supplied
         between DateReturned and DateRented there can't be more than 12 months and less than 1 month
 */
