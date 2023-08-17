@@ -5,7 +5,7 @@ go
 create table dbo.Booking(
     BookingId int not null identity primary key,
     FlightNum char(6) not null 
-        constraint ck_Booking_flight_number_must_start_with_Fly_then_fllowed_by_3_numbers check(FlightNum like 'Fly[0-9][0-9][0-9]'),
+        constraint ck_Booking_flight_number_must_start_with_Fly_then_3_digits_starting_from_001 check((FlightNum like 'Fly[0-9][0-9][0-9]') and (right(FlightNum, 3) <> '000')),
     DepartureAirport char(3) not null
         constraint ck_Booking_departure_airport_must_be_3_letters check(DepartureAirport like '[a-z][a-z][a-z]'),
     DepartureCountry varchar(25) not null
@@ -23,9 +23,8 @@ create table dbo.Booking(
         constraint ck_Booking_passenger_address_cannot_be_blank check(PassengerAddress <> ''),
     BookedDate date null,
     PassportNum varchar(9) null
-        constraint ck_Booking_passport_num_cannot_start_with_0 check(PassportNum not like '0%'),
-        constraint ck_Booking_passport_num_length_must_be_9 check(len(PassportNum) = 9),
-        constraint ck_Booking_passport_num_can_only_be_numbers check(PassportNum not like '%[^0-9]%'),
+        constraint ck_Booking_passport_num_must_be_9_digits_and_first_cannot_be_0 
+            check((len(PassportNum) = 9) and (PassportNum not like '%[^0-9]%') and (PassportNum not like '0%')),
     PassportIssueDate date null,
     PassportExpiryDate as case 
         when PassportIssueDate >= dateadd(year, 16, PassengerDOB) then dateadd(year, 9, dateadd(month, 6, PassportIssueDate))
@@ -55,5 +54,8 @@ create table dbo.Booking(
         or (PassportNum is not null and PassportIssueDate is not null and PassportNationality is not null and CheckedInTime is not null)),
 
 	--Unique Constraints
-    constraint u_Booking_one_passenger_cannot_book_2_tickets_on_the_same_flight unique (FlightNum, PassengerName, PassengerDOB, PassengerAddress),
+    constraint u_Booking_one_passenger_cannot_book_2_tickets_on_the_same_flight 
+        unique (FlightNum, DepartureTime, PassengerName, PassengerDOB, PassengerAddress),
+
+    --add constraint to ensur that we dont reuse flight info while its in use
 )

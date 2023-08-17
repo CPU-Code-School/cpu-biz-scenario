@@ -9,6 +9,7 @@ group by b.FlightNum, b.DepartureAirport, b.DepartureTime, b.ArrivalAirport
 select *
 from Booking b 
 where b.CheckedInTime is null
+and datediff(day, getdate(), b.DepartureTime) between 0 and 7
 
 --3) How many flights are departing per day, and num of passengers we have on those flights.
 select Passengers = count(*), DepartureDate = convert(date, b.DepartureTime, 23)
@@ -16,9 +17,9 @@ from Booking b
 group by convert(date, b.DepartureTime, 23)
 
 --4) How many flights are departing per destination, and num of passengers we have on those flights, to know what route is attracts most people.
-select b.DepartureAirport, Flights = b.FlightNum, Passengers = count(*)
+select b.DepartureAirport, Passengers = count(*)
 from Booking b 
-group by b.FlightNum, b.DepartureAirport
+group by b.DepartureAirport
 
 --5) How many people booked but didn't actually travel in the end.
 select count(*)

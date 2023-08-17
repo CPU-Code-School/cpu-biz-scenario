@@ -9,9 +9,10 @@ insert Booking
     (FlightNum, DepartureAirport, DepartureCountry, DepartureTime, ArrivalAirport, ArrivalCountry, ArrivalTime,
     PassengerName, PassengerDOB, PassengerAddress, 
     PassportNum, PassportIssueDate, PassportNationality, BookedDate, CheckedInTime)
-select 'Fly001', 'LHR', 'UK', '2023-12-10 08:00AM', 'JFK', 'USA', '2023-12-10 12:00PM', 
+select 'Fly001', 'LHR', 'UK', '2023-08-17 07:58AM', 'JFK', 'USA', '2023-12-10 12:00PM', 
     'John Major', '2000-12-31', '22 Queens Road', 
-    null, null, '', '2023-11-10', null
+    null, null, null, '2023-04-25', null
+
 union select 'Fly001', 'LHR', 'UK', '2023-12-10 08:00AM', 'JFK', 'USA', '2023-12-10 12:00PM', 
     'Passenger Two', '1990-05-15', '23 Queens Road', 
     '175478101', '2017-09-11', 'UK', '2023-11-11', '2023-11-29'
@@ -44,24 +45,22 @@ union select 'Fly003', 'LHR', 'UK', '2023-12-01 08:00AM', 'JFK', 'USA', '2023-12
     '367654997', '2018-12-30', 'USA', '2023-10-31', '2023-11-19'
 union select 'Fly003', 'LHR', 'UK', '2023-12-01 08:00AM', 'JFK', 'USA', '2023-12-01 12:00PM', 
     'Passenger Eleven', '1995-08-16', '14 Downing Street', 
-    null, null, '', '2023-09-30', null
+    null, null, null, '2023-09-30', null
 union select 'Fly003', 'LHR', 'UK', '2023-12-01 08:00AM', 'JFK', 'USA', '2023-12-01 12:00PM', 
     'Passenger Twelve', '1994-09-18', '16 Downing Street', 
     '367654995', '2018-10-28', 'USA', '2023-08-29', '2023-12-01'
-union select 'Fly003', 'LHR', 'UK', '2023-12-01 08:00AM', 'JFK', 'USA', '2023-12-01 12:00PM', 
+union select 'Fly003', 'KUB', 'UK', '2023-12-01 08:00AM', 'JFK', 'USA', '2023-12-01 12:00PM', 
     'Passenger Thirteen', '1993-10-20', '18 Downing Street', 
     '367654994', '2018-09-27', 'USA', '2023-07-28', '2023-12-01'
 union select 'Fly003', 'LHR', 'UK', '2023-12-01 08:00AM', 'JFK', 'USA', '2023-12-01 12:00PM', 
     'Passenger Fourteen', '1992-11-22', '20 Downing Street', 
-    null, null, '', '2023-06-07', null
+    null, null, null, '2023-06-07', null
 union select 'Fly003', 'LHR', 'UK', '2023-12-01 08:00AM', 'JFK', 'USA', '2023-12-01 12:00PM', 
     'Passenger Fifteen', '1991-12-24', '22 Downing Street', 
     '367654992', '2018-07-25', 'USA', '2023-05-26', '2023-12-01'
 union select 'Fly001', 'LHR', 'UK', '2023-12-10 08:00AM', 'JFK', 'USA', '2023-12-10 12:00PM', 
     'Passenger Three', '1995-06-22', '25 Queens Road', 
     '175478102', '2016-08-10', 'UK', '2023-10-10', '2023-12-09'
-
-
 
 go 
 select * from booking
