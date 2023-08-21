@@ -22,7 +22,7 @@ from Booking b
 group by b.DepartureAirport
 
 --5) How many people booked but didn't actually travel in the end.
-select count(*)
+select PassengersMissedFlights =  count(*)
 from Booking b 
 where b.CheckedInTime is null
 and getdate() > b.DepartureTime

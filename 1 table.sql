@@ -26,15 +26,15 @@ create table dbo.Booking(
         constraint ck_Booking_passport_num_must_be_9_digits_and_first_cannot_be_0 
             check((len(PassportNum) = 9) and (PassportNum not like '%[^0-9]%') and (PassportNum not like '0%')),
     PassportIssueDate date null,
-    PassportExpiryDate as case 
-        when PassportIssueDate >= dateadd(year, 16, PassengerDOB) then dateadd(year, 9, dateadd(month, 6, PassportIssueDate))
-        else dateadd(year, 5, PassportIssueDate)
-    end persisted,
+    PassportExpiryDate date null,
     PassportNationality varchar(25) null
         constraint Booking_passport_nationality_cannot_be_blank check(PassportNationality <> ''),
     CheckedInTime datetime null,
     
     -- Date constraints
+    constraint ck_Booking_passport_expiry_date_must_be_9_years_6_months_after_passport_issue_date_if_age_is_16_or_more_otherwise_5_years_after
+        check( (PassportIssueDate >= dateadd(year, 16, PassengerDOB) and PassportExpiryDate = dateadd(year, 9, dateadd(month, 6, PassportIssueDate))) 
+        or (PassportIssueDate < dateadd(year, 16, PassengerDOB) and PassportExpiryDate = dateadd(year, 5, PassportIssueDate))),
 	constraint ck_Booking_passport_issue_date_cannot_be_before_passenger_dob check(PassengerDOB <= PassportIssueDate),
 	constraint ck_Booking_passport_booked_date_cannot_be_before_passport_issue_date check(PassportIssueDate <= BookedDate),
 	constraint ck_Booking_checked_in_time_cannot_be_before_booked_date check((BookedDate <= CheckedInTime) or CheckedInTime is null),
@@ -50,8 +50,8 @@ create table dbo.Booking(
     
 	--All or non constraints
 	constraint ck_Booking_passport_num_passport_issue_date_passport_nationality_and_checked_in_time_must_all_either_be_completed_or_null
-        check((PassportNum is null and PassportIssueDate is null and PassportNationality is null and CheckedInTime is null)
-        or (PassportNum is not null and PassportIssueDate is not null and PassportNationality is not null and CheckedInTime is not null)),
+        check((PassportNum is null and PassportIssueDate is null and PassportNationality is null and PassportExpiryDate is null)
+        or (PassportNum is not null and PassportIssueDate is not null and PassportNationality is not null and PassportExpiryDate is not null)),
 
 	--Unique Constraints
     constraint u_Booking_one_passenger_cannot_book_2_tickets_on_the_same_flight 
