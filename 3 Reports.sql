@@ -11,6 +11,8 @@ Group by p.PetType
 --2)we need to see how many customers have multiple pets.
 select p.OwnerName, NumOfCustomers = count(p.OwnerName)
 from Customer p
+group by p.OwnerName
+Having count(p.OwnerName) > 1
 
 --3)We need to know our top customer - the customer that is paying us the most.
 SELECT top 1 TopPayingCustomer = p.OwnerName, TotalPays = SUM(case when p.Frequency = 'weekly' then p.Price *2 else p.Price end)
