@@ -19,7 +19,7 @@ A)Yes, we record each pet seperately, and just repeat the owner's information fo
 
 Reports:
 1)We need a list of how many of each pet we currently have.
-2)we need to see how many customers have multiple pets.
+2)We need a list of those who have multiple pets, include how many pets they have.
 3)We need to know our top customer - the customer that is paying us the most.
 4)We need to know the average amount we make per animal type 
 
