@@ -10,10 +10,9 @@
         not null 
         constraint ck_Customer_Last_name_is_not_blank CHECK (LastName <> ''),
     PhoneNumber
-        int 
+        varchar(15) 
         not null 
-        not blank
-        9 numbers,
+        not blank,
     Address
         varchar(50)
         not null 
