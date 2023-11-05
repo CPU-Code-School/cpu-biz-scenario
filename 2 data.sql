@@ -1,9 +1,9 @@
 use CleaningCompanyDB
 go
 insert CleaningCompany(FirstName, LastName, PhoneNumber, CustomerAddress, Frequency, PricePerHour, TimeinHours, StartDate, EndDate)
-select 'Tara', 'Hughes', '727 456 2346', '3478 71st Ave N', 'bi weekly', $25, 5, '04-04-2017', null
+select 'Tara', 'Hughes', '727 456 2346', '3478 71st Ave N', 'biweekly', $25, 5, '04-04-2017', null
 union select 'David', 'Sullivan', '727 346 6945', '5061 47th St. N', 'biweekly', $30, 6, '05-14-2019', null
-union select 'Jennifer, Hill', '727 456 8689', '2890 6th St. S', 'weekly', $35, 7, '03-10-2020', null
+union select 'Jennifer', 'Hill', '727 456 8689', '2890 6th St. S', 'weekly', $35, 7, '03-10-2020', null
 union select 'Bob', 'Evans', '727 680 3867', '1747 1st Ave N', 'biweekly', $30, 8, '08-15-2018', null
 union select 'Amy', 'Campbell', '727 245 6956', '1820 Tropical Shores Dr SE', 'biweekly', $35, 8, '05-24-2017', '11-29-2020'
 union select 'Peter', 'Mitchell', '727 357 9765', '4059 Burlington Ave N', 'biweekly', $30, 7, '09-30-2021', null
@@ -27,7 +27,7 @@ union select 'Lisa', 'Adams', '727 285 8999', '1386 48th Ave N', 'biweekly', $30
 union select 'Lisa', 'Adams', '727 285 8999', '1533 48th Ave N', 'biweekly', $25, 3, '11-12-2017', null
 union select 'John', 'Allen', '727 709 7985', '2722 Bay St NE', 'biweekly', $30, 6, '03-31-2019', null
 union select 'Kim', 'White', '727 264 8996', '1718 50th Ave N', 'weekly', $34, 7, '06-19-2019', '04-05-2020'
-union select 'Christina, Lewis', '727 245 7240', '1444 Newton Ave S', 'biweekly', $32, 5, '01-17-2021', null
+union select 'Christina', 'Lewis', '727 245 7240', '1444 Newton Ave S', 'biweekly', $32, 5, '01-17-2021', null
 union select 'James', 'Morris', '727 277 3365', '1006 5th Ave S', 'biweekly', $35, 8, '09-08-2018', null
 union select 'James', 'Morris', '727 277 3365', '4789 41st St S', 'biweekly', $25, 4, '11-30-2019', null
 union select 'Michael', 'Rogers', '727 955 62464', '2789 6th St S', 'weekly', $30, 8, '07-27-2017', null
