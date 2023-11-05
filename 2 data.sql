@@ -1,6 +1,6 @@
 use CleaningCompanyDB
 go
-insert CleaningCompany(FirstName, LastName, PhoneNumber, Address, Frequency, PricePerHour, Hours, StartDate, EndDate)
+insert CleaningCompany(FirstName, LastName, PhoneNumber, CustomerAddress, Frequency, PricePerHour, TimeinHours, StartDate, EndDate)
 select 'Tara', 'Hughes', '727 456 2346', '3478 71st Ave N', 'bi weekly', $25, 5, '04-04-2017', null
 union select 'David', 'Sullivan', '727 346 6945', '5061 47th St. N', 'biweekly', $30, 6, '05-14-2019', null
 union select 'Jennifer, Hill', '727 456 8689', '2890 6th St. S', 'weekly', $35, 7, '03-10-2020', null
