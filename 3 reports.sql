@@ -4,7 +4,7 @@
    Please do it in this format:  last name, first name (phone number) - price of service.
 */
 SELECT DeepCleanCustomers= CONCAT(c.LastName, ' ', c.FirstName, ' (',c.PhoneNumber, ') - ', (c.PricePerHour*c.TimeinHours)  )
-FROM CleaningCompany C
+FROM Customer C
 where c.PricePerHour >=35 
 
 
@@ -14,16 +14,16 @@ where c.PricePerHour >=35
    Please include a column formatted like this: last name - weekly/bi weekly and a column for number of months
 */
 SELECT Customer= concat(c.LastName, ' - ', c.Frequency), NumberOfMonths= DATEDIFF(month, c.StartDate, isnull(c.EndDate, CURRENT_TIMESTAMP))
-FROM CleaningCompany c
+FROM Customer c
 ORDER BY NumberOfMonths desc
 
 --3) What is the average price I ask per hour for regular cleans and what is the average price per hour for deep cleans?
 SELECT AvergaePricePerHourRegularClean = avg(c.PricePerHour)
-FROM CleaningCompany c
+FROM Customer c
 where c.PricePerHour between 0 and 35
 
 SELECT AvergaePricePerHourDeepClean = avg(c.PricePerHour)
-FROM CleaningCompany c
+FROM Customer c
 where c.PricePerHour >=35 
 
 
@@ -34,16 +34,16 @@ SELECT top(1) AmountPerYear=
         when c.frequency = 'biweekly' then PricePerHour * TimeinHours*26
         when c.frequency = 'weekly' then PricePerHour * TimeinHours*52
     end,* 
-FROM CleaningCompany c 
+FROM Customer c 
 WHERE c.PricePerHour < 35
 ORDER by AmountPerYear desc
 
 
 --5) How many customers did I gain in the year 2020 and how many did I lose?
 SELECT CustomersGained2020= count(*) 
-FROM CleaningCompany c 
+FROM Customer c 
 WHERE DATEPART(year, c.StartDate) = 2020
 
 SELECT CustomersLosr2020= count(*) 
-FROM CleaningCompany c 
+FROM Customer c 
 WHERE DATEPART(year, c.EndDate) = 2020
