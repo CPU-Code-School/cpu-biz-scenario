@@ -11,11 +11,10 @@ CREATE table dbo.Customer(
         TimeinHours decimal(4,2) not null CONSTRAINT ck_Customer_TimeinHours_is_between_greater_than_0 check (TimeinHours >0 ),
         StartDate date not null CONSTRAINT ck_Customer_Satrt_date_is_After_January_15_2017 CHECK (startdate > '01-15-2017'),
         EndDate date null,
-                TotalPerMonth as case 
-        when  frequency = 'weekly' then PricePerHour * TimeinHours * 4
-        when  frequency = 'biweekly' then PricePerHour * TimeinHours * 2
-        end
-        PERSISTED, 
+        TotalPerMonth as case 
+                when  frequency = 'weekly' then PricePerHour * TimeinHours * 4
+                when  frequency = 'biweekly' then PricePerHour * TimeinHours * 2
+                end PERSISTED, 
         constraint ck_start_date_is_before_end_date check (StartDate < EndDate),
         constraint ck_price_per_hour_times_hours_is_less_than_424 check (PricePerHour * TimeinHours < 424)
 
