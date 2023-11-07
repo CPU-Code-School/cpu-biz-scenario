@@ -3,7 +3,7 @@
    For this I need to see the customers phone number, last name and the amount of money they will have to pay.
    Please do it in this format:  last name, first name (phone number) - price of service.
 */
-SELECT DeepCleanCustomers= CONCAT(c.LastName, ' ', c.FirstName, ' (',c.PhoneNumber, ') - ', (c.PricePerHour*c.TimeinHours*1.5)  )
+SELECT DeepCleanCustomers= CONCAT(c.LastName, ', ', c.FirstName, ' (',c.PhoneNumber, ') - ', (c.PricePerHour*1.5*c.TimeinHours*2)  )
 FROM Customer C
 
 
@@ -17,13 +17,9 @@ FROM Customer c
 ORDER BY NumberOfMonths desc
 
 --3) What is the average price I ask per hour for regular cleans and what is the average price per hour for deep cleans?
-SELECT AvergaePricePerHourRegularClean = avg(c.PricePerHour)
+SELECT AvergagePricePerHourRegularClean = avg(c.PricePerHour), AvergagePricePerHourDeepClean = avg(c.PricePerHour*1.5)
 FROM Customer c
-where c.PricePerHour between 0 and 35
 
-SELECT AvergaePricePerHourDeepClean = avg(c.PricePerHour)
-FROM Customer c
-where c.PricePerHour >=35 
 
 
 --4) Which customer do I earn the most money from in a year? (not counting deep cleans) 
@@ -42,6 +38,6 @@ SELECT CustomersGained2020= count(*)
 FROM Customer c 
 WHERE DATEPART(year, c.StartDate) = 2020
 
-SELECT CustomersLosr2020= count(*) 
+SELECT CustomersLost2020= count(*) 
 FROM Customer c 
 WHERE year(c.EndDate) = 2020

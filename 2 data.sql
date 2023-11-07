@@ -1,5 +1,7 @@
 use CleaningCompanyDB
 go
+delete Customer 
+
 insert Customer(FirstName, LastName, PhoneNumber, CustomerAddress, Frequency, PricePerHour, TimeinHours, StartDate, EndDate)
 select 'Tara', 'Hughes', '727 456 2346', '3478 71st Ave N', 'biweekly', $25, 5, '04-04-2017', null
 union select 'David', 'Sullivan', '727 346 6945', '5061 47th St. N', 'biweekly', $30, 6, '05-14-2019', null
