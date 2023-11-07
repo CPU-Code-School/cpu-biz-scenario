@@ -31,3 +31,4 @@ union select 'Christina', 'Lewis', '727 245 7240', '1444 Newton Ave S', 'biweekl
 union select 'James', 'Morris', '727 277 3365', '1006 5th Ave S', 'biweekly', $35, 8, '09-08-2018', null
 union select 'James', 'Morris', '727 277 3365', '4789 41st St S', 'biweekly', $25, 4, '11-30-2019', null
 union select 'Michael', 'Rogers', '727 955 62464', '2789 6th St S', 'weekly', $30, 8, '07-27-2017', null
+

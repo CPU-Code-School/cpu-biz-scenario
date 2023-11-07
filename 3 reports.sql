@@ -3,9 +3,8 @@
    For this I need to see the customers phone number, last name and the amount of money they will have to pay.
    Please do it in this format:  last name, first name (phone number) - price of service.
 */
-SELECT DeepCleanCustomers= CONCAT(c.LastName, ' ', c.FirstName, ' (',c.PhoneNumber, ') - ', (c.PricePerHour*c.TimeinHours)  )
+SELECT DeepCleanCustomers= CONCAT(c.LastName, ' ', c.FirstName, ' (',c.PhoneNumber, ') - ', (c.PricePerHour*c.TimeinHours*1.5)  )
 FROM Customer C
-where c.PricePerHour >=35 
 
 
 /*
@@ -35,7 +34,6 @@ SELECT top(1) AmountPerYear=
         when c.frequency = 'weekly' then PricePerHour * TimeinHours*52
     end,* 
 FROM Customer c 
-WHERE c.PricePerHour < 35
 ORDER by AmountPerYear desc
 
 
@@ -46,4 +44,4 @@ WHERE DATEPART(year, c.StartDate) = 2020
 
 SELECT CustomersLosr2020= count(*) 
 FROM Customer c 
-WHERE DATEPART(year, c.EndDate) = 2020
+WHERE year(c.EndDate) = 2020
