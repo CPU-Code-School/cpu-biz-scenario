@@ -33,7 +33,7 @@ create table dbo.confectionary(
             when picture = 1 and item = 'cake' and typeOfBase <> 'Strawberry Shortcake' then 50.00+8.00
         end,
 
-    PriceOfOrder as
+    PriceOfOrder as 
         case 
            -- when picture ='yes'  and item = 'cookie' then (amount *3.50) +1.50
             --when picture = 'yes' and item = 'cake' and typeOfBase = 'Strawberry Shortcake' then (amount*55.00)+8.00
