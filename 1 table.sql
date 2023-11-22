@@ -16,7 +16,7 @@ create table dbo.confectionary(
         constraint ck_confectionary_item_can_only_be_cake_cupcake_or_cookie check (item in ('cake', 'cupcake', 'cookie')),
     Topping varchar(15) not null 
         constraint c_must_be_specific_topping check(Topping in ('Fondant', 'Frosting', 'Royal icing', 'chocolate peanut butter', 'vanilla', 'chocolate', 'caramel', 'strawberry', 'coconut', 'peanut butter', 'none')), 
-    Picture bit  not null,
+    Picture bit not null,
     Specifics varchar(100) null,
     Occasion varchar(35) not null constraint c_occasion_cant_be_blank check(Occasion <> ''),
     Amount int not null 
