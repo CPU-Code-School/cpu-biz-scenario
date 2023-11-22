@@ -27,5 +27,5 @@ union select 'Mendy Fischer', 'Lakewood', '07/04/2021', 'Banana', 'Cupcake', 'Va
 union select' Chaya Kaplan', 'Lakewood', '01/01/2021', 'Chocolate', 'Cupcake', 'Vanilla', 0, 'Make it taste great please', 'Birthday', 100
 union select 'Sarala Schwartz', 'Brooklyn', '06/09/2021', 'Chocolate', 'Cupcake', 'Vanilla', 0, 'none', 'Baby', 50
 union select 'Sarah Braunstein', 'Brooklyn',  '10/24/2021', 'Sugar', 'Cookie', 'Royal icing', 1, 'See attached picture of my house', 'Family party', 110
-select * from confectionary 
+select * from confectionary  
  
