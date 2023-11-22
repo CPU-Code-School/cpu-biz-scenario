@@ -16,7 +16,7 @@ create table dbo.confectionary(
         constraint ck_confectionary_item_can_only_be_cake_cupcake_or_cookie check (item in ('cake', 'cupcake', 'cookie')),
     Topping varchar(15) not null 
         constraint c_must_be_specific_topping check(Topping in ('Fondant', 'Frosting', 'Royal icing', 'chocolate peanut butter', 'vanilla', 'chocolate', 'caramel', 'strawberry', 'coconut', 'peanut butter', 'none')), 
-    Picture bit,
+    Picture bit  not null,
     Specifics varchar(100) null,
     Occasion varchar(35) not null constraint c_occasion_cant_be_blank check(Occasion <> ''),
     Amount int not null 
@@ -24,9 +24,9 @@ create table dbo.confectionary(
         constraint ck_amount_cant_be_negative check(amount>0),
     PricePerItem as
         case
-            when item = 'Cookie' then 3.50
-            when Item = 'cake' and TypeOfBase <> 'Strawberry Shortcake' then 50.00
-            when item = 'cake' and TypeOfBase = 'Strawberry Shortcake' then 55.00
+            when item = 'Cookie' and picture = 0 then 3.50
+            when Item = 'cake' and picture = 0 and TypeOfBase <> 'Strawberry Shortcake' then 50.00
+            when item = 'cake' and picture = 0 and TypeOfBase = 'Strawberry Shortcake' then 55.00
             when item = 'cupcake' then 3.00
              when picture =1  and item = 'cookie' then 3.50 +1.50
             when picture = 1 and item = 'cake' and typeOfBase = 'Strawberry Shortcake' then 55.00+8.00
@@ -49,6 +49,6 @@ create table dbo.confectionary(
              when picture =1  and item = 'cookie' then 3.50 +1.50*amount
             when picture = 1 and item = 'cake' and typeOfBase = 'Strawberry Shortcake' then 55.00+8.00*amount
             when picture = 1 and item = 'cake' and typeOfBase <> 'Strawberry Shortcake' then 50.00+8.00*amount
-        end,
+        end * amount,
 constraint ck_confectionary_min_amount_for_cookies_is_24 check((item = 'Cookie' and amount >=24) or (item = 'Cupcake' and amount >=12)or (item = 'cake')),
 )
