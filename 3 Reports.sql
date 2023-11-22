@@ -14,7 +14,7 @@
  order by AmountSold desc
 
  --3. I need you to show me all of my customers in the following format: name: amountbought - costume customer bought (how much they paid)
- select Customer = concat(c.CustomerName, ': ', c.Amount, ' - ', c.Costume, ' (', c.Total, ')')
+ select Customer = concat(c.FirstName, ' ', c.LastName, ': ', c.Amount, ' - ', c.Costume, ' (', c.Total, ')')
  from CostumeStore c 
 
  --4. I need to know the profit each sale.
