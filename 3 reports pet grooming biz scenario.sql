@@ -9,6 +9,7 @@ group by p.PetType
 SELECT Petcount = COUNT(p.PetType), p.PetOwnerFirstName, p.PetOwnerLastName
 from Petgroom p
 group by p.PetOwnerFirstName, p.PetOwnerLastName
+HAVING COUNT(p.PetType) > 1
 
 --3)We need to know our top customer - the customer that is paying us the most.
 SELECT top 1 
@@ -24,4 +25,3 @@ order by Customerpayment DESC
 SELECT AvgProfit = Avg(p.PricePerGrooming), p.PetType
 from Petgroom p
 group by p.PetType
-
