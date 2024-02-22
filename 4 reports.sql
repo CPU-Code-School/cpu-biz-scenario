@@ -4,7 +4,7 @@ from Soldiers s
 order by s.IQlevel desc
 
 --2) I need a list of all soldiers sorted by age at enlistment from high to low. Do not include columns that are not relevant to this list.
-select s.DOB, s.DateOfEnlistment, Age = datediff(year,s.DOB,s.DateOfEnlistment)
+select s.SoldierID, s.SoldierFirstName, s.SoldierLastName, s.DOB, s.DateOfEnlistment, Age = datediff(year,s.DOB,s.DateOfEnlistment)
 from Soldiers s
 order by Age desc
 

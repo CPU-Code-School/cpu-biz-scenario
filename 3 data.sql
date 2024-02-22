@@ -2,6 +2,8 @@ use ArmyDB
 go
 set dateformat dmy
 go
+delete Soldiers
+go
 insert Soldiers(SoldierFirstName, SoldierLastName, SSN, DOB, PlaceOfResidence, DateOfEnlistment, ServiceUnit, UnitRank, IQlevel)
 select 'Ron', 'Aviad', '54876373-2', '01/01/2000', 'Caesarea', '01/03/2021', 'Air Force', 'sergeant', 95
 union select 'Shachar', 'Dotan', '85274136-9', '16/08/2001', 'Jerusalem', '01/10/2020', 'Navy', 'lieutenant colonel', 111
