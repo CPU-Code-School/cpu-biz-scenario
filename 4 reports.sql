@@ -1,4 +1,6 @@
 --1) Show a list of all soldiers with all details sorted by IQ level from high to low.
+use ArmyRecordsDB
+go 
 
 select *
 from Soldiers s
@@ -15,12 +17,12 @@ order by s.SoldierAgeAtEnlistment desc
    (This should be done by using a union select and adding a literal column for year range.)
 */
 
-select concat('2017-2019', ' ', s.SoldierFirstName, ' ', s.SoldierLastName, ' - ', s.SoldierSSN, ' (', s.SoldierDateOfEnlistment, ')', ', ', s.ServiceUnit)
+select RecruitmentReports = concat('2017-2019', ' ', s.SoldierFirstName, ' ', s.SoldierLastName, ' - ', s.SoldierSSN, ' (', s.SoldierDateOfEnlistment, ')', ', ', s.ServiceUnit)
 from Soldiers s
-where datepart(year, s.SoldierDateOfEnlistment) between 2017 and 2019
+where year(s.SoldierDateOfEnlistment) between 2017 and 2019
 union select  concat('2020-2022', ' ', s.SoldierFirstName, ' ', s.SoldierLastName, ' - ', s.SoldierSSN, ' (', s.SoldierDateOfEnlistment, ')', ', ', s.ServiceUnit)
 from Soldiers s
-where datepart(year, s.SoldierDateOfEnlistment) between 2020 and 2022
+where year(s.SoldierDateOfEnlistment) between 2020 and 2022
 
 -- 4) I need to know what the average IQ level is for soldiers per service unit.
 
