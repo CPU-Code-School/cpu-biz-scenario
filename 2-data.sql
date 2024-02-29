@@ -1,4 +1,9 @@
+use IdfDB
+go
+delete Soldier
+go
 set dateformat dmy
+go
 
 insert Soldier(FirstName,LastName,SSN,DateOfBirth,Residence,DateEnlisted,ServiceUnit,UnitRank,IQ)
 select 'Ron', 'Aviad', '54876373-2', '01/01/2000', 'Caesarea', '01/03/2021', 'Air Force', 'sergeant', 95
