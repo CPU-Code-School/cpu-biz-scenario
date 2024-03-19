@@ -8,9 +8,10 @@ create table dbo.Soldier(
 		constraint c_Soldier_first_name_cannot_be_blank check(FirstName <> ''),
 	LastName varchar(25) not null
 		constraint c_Soldier_last_name_cannot_be_blank check(LastName <> ''),
-	SSN varchar(10) not null
+	SSN char(10) not null
 		constraint c_Soldier_SSN_cannot_be_blank check(SSN <> '')
 		constraint u_Soldier_SSN_must_be_unique unique(SSN),
+		constraint c_Soldier_SSN_must_be_8_digits_dash_1_digit check(SSN like '%-%'),
 	DateOfBirth date not null,
 	Residence varchar(25) not null
 		constraint c_Soldier_residence_cannot_be_blank check(Residence <> ''),
