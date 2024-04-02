@@ -30,6 +30,15 @@ create table dbo.Costume(
                                 when Size = 'XL' then 25
                             end persisted,
     TotalPaid as AmountBought*SoldPricePerCostume persisted,
+    PaidFullPrice as case 
+                        when  (Size = 'XS' and SoldPricePerCostume = 20)
+                            or (Size = 'S' and SoldPricePerCostume = 22)
+                            or (Size = 'M' and SoldPricePerCostume = 25)
+                            or (Size = 'L' and SoldPricePerCostume = 27)
+                            or (Size = 'XL' and SoldPricePerCostume = 30)
+                        then 'Yes'
+                        else 'No'
+                        end persisted,
     constraint c_Costume_Sold_Price_must_be_greater_than_or_equal_to_Bought_Price_per_costume check(SoldPricePerCostume >= BoughtPricePerCostume),
     constraint c_Costume_Date_Bought_must_be_before_or_same_as_Date_Sold check(DateBought <= DateSold) 
     
