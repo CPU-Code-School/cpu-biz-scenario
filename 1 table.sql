@@ -18,7 +18,8 @@ create table dbo.Costume(
     AmountBought int not null 
         constraint c_Costume_Amount_bought_must_be_1_or_more check(AmountBought >= 1),
     SoldPricePerCostume int not null, 
-    DateBought date not null,
+    DateBought date not null
+        constraint c_Costume_Date_bought_must_be_after_January_1_2020_and_cannnot_be_future_date check(DateBought between 'January 1 2020' and getdate()),
     DateSold date not null
         constraint c_Costume_Date_Sold_can_be_after_January_1_2020_and_cannot_be_future_date check(DateSold between 'January 1 2020' and getdate()),
     BoughtPricePerCostume as case 

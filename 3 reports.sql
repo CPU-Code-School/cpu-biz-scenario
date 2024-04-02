@@ -20,5 +20,5 @@ select concat(c.CustomerFirstName, ' ', c.CustomerLastName, ': ', c.AmountBought
 from Costume c 
  
 --4. I need to know the profit each sale.
-select ProfitPerSale = (c.AmountBought*c.SoldPricePerCostume) - (c.AmountBought * c.BoughtPricePerCostume), *
+select ProfitPerSale = (c.TotalPaid) - (c.AmountBought * c.BoughtPricePerCostume), *
 from Costume c 
