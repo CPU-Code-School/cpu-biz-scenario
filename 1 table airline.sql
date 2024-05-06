@@ -4,7 +4,7 @@ drop table if exists Flight
 go 
 create table dbo.Flight(
     FlightId int not null identity primary key,
-    FlightNumber varchar(6) not null constraint ck_Flight_flight_number_starts_with_fly_then_3_digits_starting_from_001 check(FlightNumber like 'FLY[0-9][0-9][1-9]'),
+    FlightNumber char(6) not null constraint ck_Flight_flight_number_starts_with_fly_then_3_digits_starting_from_001 check(FlightNumber like 'FLY[0-9][0-9][1-9]'),
     DepartureAirport varchar(3) not null constraint ck_Flight_departure_airport_cannot_be_blank check(DepartureAirport <> ''),
     DepartureCountry varchar(25) not null constraint ck_Flight_departure_country_cannot_be_blank check(DepartureCountry <> ''),
     ArrivalAirport varchar(3) not null constraint ck_Flight_arrival_airport_cannot_be_blank check(ArrivalAirport <> ''),
