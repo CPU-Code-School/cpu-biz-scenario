@@ -9,9 +9,9 @@ from Flight f
 where f.PassportNumber is null and datediff(day,(getdate()),(TimeDeparting)) between 0 and 7
 
 --3)
-select AmountDeparting = count(distinct f.FlightNumber), DepartureDate = datefromparts(year(TimeDeparting), month(TimeDeparting), day(TimeDeparting)), AmountOfPassengers = count(f.FlightNumber)
+select AmountDeparting = count(distinct f.FlightNumber), f.TimeDeparting
 from Flight f 
-group by datefromparts(year(f.TimeDeparting), month(f.TimeDeparting), day(f.TimeDeparting))
+group by f.TimeDeparting
 
 --4) 
 select AmountPerDestination = count(distinct f.FlightNumber), f.ArrivalAirport, AmountOfPassengers = count(*)
