@@ -16,7 +16,7 @@ create table dbo.Flight(
     DOB date not null,
     PassengerAddress varchar(75) not null constraint ck_Flight_passenger_address_cannot_be_blank check(PassengerAddress <> ''),
     PassportNumber char(9) null constraint ck_Flight_passport_number_must_be_9_digits_and_start_with_any_digit_except_0 check(PassportNumber like '[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' or PassportNumber is null),
-    PassportIssueDate date null,
+    PassportIssueDate date null constraint ck_Flight_passport_issue_date_is_before_the_current_date check(PassportIssueDate <= getdate(),
     PassportExpiryDate date null,
     PassportNationality varchar(25) null,
     constraint ck_Flight_passport_number_and_issue_date_and_expiry_date_and_nationality_must_all_be_blank_or_all_have_a_value 
