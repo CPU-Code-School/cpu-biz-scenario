@@ -17,7 +17,7 @@ create table dbo.Flight(
     PassengerAddress varchar(75) not null constraint ck_Flight_passenger_address_cannot_be_blank check(PassengerAddress <> ''),
     PassportNumber char(9) null constraint ck_Flight_passport_number_must_be_9_digits_and_start_with_any_digit_except_0 check(PassportNumber like '[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' or PassportNumber is null),
     PassportIssueDate date null constraint ck_Flight_passport_issue_date_is_before_the_current_date check(PassportIssueDate <= getdate(),
-    PassportExpiryDate date null,
+    PassportExpiryDate date null constraint ck_Flight_passport_expiry_date_must_be_in_the_future check(PassportExpiryDate > getdate(),
     PassportNationality varchar(25) null,
     constraint ck_Flight_passport_number_and_issue_date_and_expiry_date_and_nationality_must_all_be_blank_or_all_have_a_value 
         check((PassportNumber = '' and PassportIssueDate = '' and PassportExpiryDate = '' and PassportNationality = '') or (PassportNumber <> '' and PassportIssueDate <> '' and PassportExpiryDate <> '' and PassportNationality <> '')),
