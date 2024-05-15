@@ -20,7 +20,7 @@ create table dbo.Flight(
     PassportExpiryDate date null constraint ck_Flight_passport_expiry_date_must_be_in_the_future check(PassportExpiryDate > getdate(),
     PassportNationality varchar(25) null constraint ck_Flight_passport_nationality_cannot_be_blank check(PassportNationality <> ''),
     constraint ck_Flight_passport_number_and_issue_date_and_expiry_date_and_nationality_must_all_be_blank_or_all_have_a_value 
-        check((PassportNumber = '' and PassportIssueDate = '' and PassportExpiryDate = '' and PassportNationality = '') or (PassportNumber <> '' and PassportIssueDate <> '' and PassportExpiryDate <> '' and PassportNationality <> '')),
+        check((PassportNumber = null and PassportIssueDate = null and PassportExpiryDate = null and PassportNationality = null) or (PassportNumber <> null and PassportIssueDate <> null and PassportExpiryDate <> null and PassportNationality <> null)),
     constraint u_Flight_flight_number_and_passenger_first_name_and_passenger_last_name_all_must_be_unique unique(FlightNumber, PassengerFirstName, PassengerLastName),
     constraint ck_Flight_time_departing_must_be_before_time_arriving check(TimeDeparting < TimeArriving),
     constraint ck_Flight_passport_expiry_date_is_10_years_after_passport_issue_date_for_those_that_are_sixteen_and_5_years_for_under_16
