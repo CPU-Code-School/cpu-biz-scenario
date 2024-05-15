@@ -14,9 +14,9 @@ from Flight f
 group by f.TimeDeparting
 
 --4) 
-select AmountPerDestination = count(distinct f.FlightNumber), f.ArrivalAirport, AmountOfPassengers = count(*)
+select AmountPerDestination = count(distinct f.FlightNumber), f.ArrivalCountry, AmountOfPassengers = count(*)
 from Flight f
-group by f.ArrivalAirport
+group by f.ArrivalCountry
 
 --5)
 select *
