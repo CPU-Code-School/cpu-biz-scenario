@@ -5,7 +5,7 @@ go
 
 select PassengersOnFlight= count(f.FlightNumber) , f.FlightNumber, f.DepartureAirport, f.DepartureCountry ,f.TimeDeparting, f.ArrivalAirport, f.ArrivalCountry
 from flyair f 
-group by f.FlightNumber, f.FlightNumber, f.DepartureAirport, f.DepartureCountry  , f.TimeDeparting, f.ArrivalAirport, f.ArrivalCountry
+group by f.FlightNumber, f.DepartureAirport, f.DepartureCountry  , f.TimeDeparting, f.ArrivalAirport, f.ArrivalCountry
 
 
 --2) Who isn't checked in for flights departing in the next week, in order to send them reminders to check in.
@@ -14,6 +14,7 @@ select *
 from flyair f 
 where f.CheckedIn = 0 
 and DATEDIFF(day, GETDATE(), f.DateDeparting)<=7
+and f.DateDeparting > getdate()
 
 --3) How many flights are departing per day, and num of passengers we have on those flights.
 
@@ -37,7 +38,7 @@ select AmountBookedThatDidntFly= count(f.CheckedIn)
 from flyair f
 where f.CheckedIn = 0
 and f.DateDeparting < getdate()
-group by f.CheckedIn
+
 
 
 --6) How many flights does each person have (to know for frequent flyer status), as: last name, first name, number of flights.

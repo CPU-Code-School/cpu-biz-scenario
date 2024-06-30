@@ -4,7 +4,7 @@ delete Flyair
 go 
 
 set dateformat dmy
-insert Flyair (FlightNumber, DepartureAirport, DepartureCountry, ArrivalAirport, ArrivalCountry, DateDeparting, TimeDeparting, DateArriving, TimeArriving, PassengerFirstName, PassengerLastName, DOB, PassengerAdress, PassportNumber, PassportIssueDate, PassportExpiryDate, Nationality)
+insert Flyair (FlightNumber, DepartureAirport, DepartureCountry, ArrivalAirport, ArrivalCountry, DateDeparting, TimeDeparting, DateArriving, TimeArriving, PassengerFirstName, PassengerLastName, DOB, PassengerAddress, PassportNumber, PassportIssueDate, PassportExpiryDate, Nationality)
 
 select          'FLY001', 'LHR', 'UK', 'JFK', 'USA',    '10/12/2021' ,'8:00', '10/12/2021' ,'12:00', 'John' , 'Major', '31/12/2000', '22 Queens Road', '175478100', '10/09/2016', '10/09/2026', 'UK'
 union select    'FLY002', 'JFK', 'USA', 'LHR', 'UK',    '31/12/2021' , '15:00', '01/01/2022' , '14:30', 'John' , 'Major', '31/12/2000', '22 Queens Road', null , null , null, null
@@ -22,4 +22,5 @@ union select    'FLY102', 'FRA', 'DE', 'TLV', 'Israel', '05/01/2021' , '9:20', '
 
 select *
 from flyair
+
 
