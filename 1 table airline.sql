@@ -24,9 +24,9 @@ create table dbo.Flight(
     constraint u_Flight_flight_number_and_passenger_first_name_and_passenger_last_name_all_must_be_unique unique(FlightNumber, PassengerFirstName, PassengerLastName),
     constraint ck_Flight_time_departing_must_be_before_time_arriving check(TimeDeparting < TimeArriving),
     constraint ck_Flight_passenger_age_must_be_between_16_and_90 check(datediff(year, DOB, TimeDeparting) between 16 and 90),
-    constraint ck_Flight_timedeparting_is_before_passport_expiry_date check(((ArrivalCountry = DepartureCountry) or (PassportNationality = ArrivalCountry)) and (TimeDeparting < PassportExpiryDate)),
-    constraint ck_Flight_passport_is_valid_to_fly check((ArrivalCountry <> DepartureCountry or ArrivalCountry <> PassportNationality) 
+    constraint ck_Flight_passport_is_valid_to_fly check(((((ArrivalCountry = DepartureCountry) or (PassportNationality = ArrivalCountry)) and (TimeDeparting < PassportExpiryDate))) or
+    ((ArrivalCountry <> DepartureCountry or ArrivalCountry <> PassportNationality) 
     and (((datediff(year,DOB,getdate()) >= 16) and (datediff(month,PassportIssueDate,PassportExpiryDate) <= 113))
-    or ((datediff(year,DOB,getdate()) < 16) and (datediff(year,PassportIssueDate,PassportExpiryDate) <= 5))))
+    or ((datediff(year,DOB,getdate()) < 16) and (datediff(year,PassportIssueDate,PassportExpiryDate) <= 5)))))
 ))
 go 
