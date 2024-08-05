@@ -1,10 +1,10 @@
 use ConfectioneryDB
 go 
 
-drop table if exists Confectionery
+drop table if exists Orders
 go 
 
-create table dbo.Confectionery(
+create table dbo.Orders(
     OrderId int not null identity primary key,
     CustomerFirstName varchar (20) not null
         constraint c_customer_first_name_cannot_be_blank check (CustomerFirstName <> ''),
@@ -17,33 +17,42 @@ create table dbo.Confectionery(
     ProductType varchar (10) not null 
         constraint c_confectionery_product_type_is_cake_or_cookie_or_cupcake check (ProductType in ('cake', 'cookie', 'cupcake')),
     BaseType varchar (50) not null 
-        constraint c_confectionery_base_must_be_either_chocolate_vanilla_coconut_chocolate_peanut_butter_banana_strawberry_shortcake_or_sugar 
-        check (BaseType in ('chocolate', 'vanilla', 'coconut', 'chocolate_peanut_butter', 'banana', 'strawberry shortcake', 'sugar')),
+        constraint c_confectionery_base_must_be_chocolate_vanilla_coconut_chocolate_peanut_butter_banana_strawberry_shortcake_or_sugar 
+        check (BaseType in ('chocolate', 'vanilla', 'coconut', 'chocolate peanut butter', 'banana', 'strawberry shortcake', 'sugar')),
     Topping varchar (50) not null 
-        constraint c_confectionery_topping_must_be_either_royal_icing_fondant_chocolate_caramel_strawberry_coconut_peanut_butter_or_no_topping check 
-        (Topping in ('royal icing', 'fondant', 'chocolate', 'caramel', 'strawberry', 'coconut', 'peanut butter', 'no topping')) ,
-    CustomSpecification varchar (350) not null 
+        constraint c_confectionery_topping_must_be_royal_icing_fondant_chocolate_caramel_strawberry_coconut_peanut_butter_vanilla_or_no_topping check 
+        (Topping in ('royal icing', 'fondant', 'chocolate', 'caramel', 'strawberry', 'coconut', 'peanut butter', 'vanilla', 'no topping')) ,
+    CustomSpecification varchar (350) not null
         default '',
-    Photo varchar (3) not null
-        constraint c_confectionery_photo_must_be_either_yes_or_no check (Photo in ('yes', 'no')),
+    Photo bit not null,
     Amount int not null,
-    CostPerItem decimal (4,2) not null,
-    TotalCost decimal (6,2) not null, 
+    CostPerItem as (case
+        when ProductType = 'cake' and BaseType = 'Strawberry shortcake' and photo = 0 then 55.00
+        when ProductType = 'cake' and BaseType = 'Strawberry shortcake' and photo = 1 then 63.00 
+        when ProductType = 'cake' and BaseType <> 'Strawberry shortcake' and photo = 0 then 50.00
+        when ProductType = 'cake' and BaseType <> 'Strawberry shortcake' and photo = 1 then 58.00
+        when ProductType = 'cookie' and photo = 0 then 3.50 
+        when ProductType = 'cookie' and photo = 1 then 5.00 
+        else 3.00
+        end) persisted,
+    TotalCost as (case
+        when ProductType = 'cake' and BaseType = 'Strawberry shortcake' and photo = 0 then 55.00
+        when ProductType = 'cake' and BaseType = 'Strawberry shortcake' and photo = 1 then 63.00 
+        when ProductType = 'cake' and BaseType <> 'Strawberry shortcake' and photo = 0 then 50.00
+        when ProductType = 'cake' and BaseType <> 'Strawberry shortcake' and photo = 1 then 58.00
+        when ProductType = 'cookie' and photo = 0 then 3.50 
+        when ProductType = 'cookie' and photo = 1 then 5.00 
+        else 3.00
+        end) * Amount persisted, 
     Occasion varchar (50) not null
-        default '',
+        constraint c_occasion_cannot_be_blank check (Occasion <> ''),
 
-constraint c_confectionery_when_product_type_is_cookie_base_must_be_sugar check ((ProductType = 'cookie' and BaseType ='sugar') or (ProductType in ('cake', 'cupcake'))),
-constraint c_confectionery_amount_must_be_between_twelve_and_five_hundred_when_the_product_type_is_cupcake check ((ProductType = 'cupcake' and Amount between 12 and 500)
-or (ProductType = 'cookie' and Amount between 24 and 500) or (ProductType = 'cake' and Amount > 0)),
-constraint c_confectionery_no_photos_on_cupcakes check ((ProductType = 'cupcake' and Photo = 'no') or (ProductType in ('cake', 'cookie') and Photo in ('yes', 'no'))),
-constraint c_confectionery_cost_must_include_price_of_picture check (
-    (ProductType = 'cake' and BaseType = 'Strawberry shortcake' and CostPerItem = (case when photo = 'yes' then 63.00 else 55.00 end)) or 
-    (ProductType = 'cake' and BaseType <> 'Strawberry shortcake' and CostPerItem = (case when photo = 'yes' then 58.00 else 50.00 end)) or 
-    (ProductType = 'cookie' and BaseType = 'Sugar' and CostPerItem = (case when photo = 'yes' then 5.00 else 3.50 end)) or 
-    (ProductType = 'cupcake' and CostPerItem = 3.00))  
+constraint c_confectionery_amount_must_be_between_12_and_500_for_cupcake_and_between_24_and_500_for_cookie_and_greater_than_zero_for_cake 
+check ((ProductType = 'cupcake' and Amount between 12 and 500)
+or (ProductType = 'cookie' and Amount between 24 and 500)
+or (ProductType = 'cake' and Amount > 0)),
+constraint c_confectionery_no_photos_on_cupcakes check ((ProductType = 'cupcake' and Photo = '0') or (ProductType in ('cake', 'cookie') and Photo in (1, 0))),
 
-        
 )
 
-go     
-
+go    

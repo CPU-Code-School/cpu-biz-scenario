@@ -1,8 +1,8 @@
 --1)
 
-select Branch, ProductType, BaseType, TotalAmount = sum(amount)
-from Confectionery
-group by Branch, ProductType, BaseType
+select o.Branch, o.ProductType, o.BaseType, TotalAmount = sum(o.amount)
+from Orders o
+group by o.Branch, o.ProductType, o.BaseType
 
 
 
@@ -10,15 +10,15 @@ group by Branch, ProductType, BaseType
 
 select Season = 
     case  
-        when month(OrderDate) in (07, 08) then 'Summer'
-        when month(OrderDate) in (09, 10) then 'Holiday time'
-        when month(OrderDate) between 11 and 04 then 'Winter'
-        when month(OrderDate) in (05, 06) then 'Spring'
+        when month(o.OrderDate) in (07, 08) then 'Summer'
+        when month(o.OrderDate) in (09, 10) then 'Holiday time'
+        when month(o.OrderDate) between 11 and 04 then 'Winter'
+        when month(o.OrderDate) in (05, 06) then 'Spring'
     end,
-    occasion,
-    branch,
+    o.Occasion,
+    o.Branch,
     TotalOrders = count(*) 
-from Confectionery
+from Orders o
 group by case  
         when month(OrderDate) in (7, 8) then 'Summer'
         when month(OrderDate) in (9, 10) then 'Holiday time'
@@ -30,13 +30,13 @@ group by case
 
 --3)
 
-select Branch, Month = month(OrderDate), MonthlyIncome = sum(TotalCost)
-from Confectionery
-group by Branch, month(OrderDate)
+select o.Branch, Month = month(o.OrderDate), MonthlyIncome = sum(o.TotalCost)
+from Orders o
+group by o.Branch, month(o.OrderDate)
 
 
 --4)
 
-select Branch, Month = month(OrderDate), NumOfOrders = count(*)
-from Confectionery
-group by Branch, month(OrderDate)  
+select o.Branch, Month = month(o.OrderDate), NumOfOrders = count(*)
+from Orders o
+group by o.Branch, month(o.OrderDate)  
