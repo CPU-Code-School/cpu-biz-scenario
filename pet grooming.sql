@@ -24,8 +24,8 @@ Reports:
 4)We need to know the average amount we make per animal type 
 
 Sample Data:
-Bry-Ann Yates, 326 34th St. S, rabbit, Longears, $30, weekly, August 21 2019
-Meg Ross, 1719 Beach Dr SE, dog, Trooper, $55, biweekly, January 19 2020
+'Bry-Ann', 'Yates', 326 34th St. S, rabbit, Longears, $30, weekly, August 21 2019
+'Meg', 'Ross', 1719 Beach Dr SE, dog, Trooper, $55, biweekly, January 19 2020
 Brayanna Mille, 2255 22 Ave N, rabbit, Hunny Bunny $40, biweekly, November 5 2019
 Brayanna Mille, 2255 22 Ave N, rabbit, Hazel, $40, biweekly, November 5 2019
 Marianne Griffin, 312 Sand Pine Ln, dog, Mr. Stich, $60, biweekly, June 20 2021
