@@ -52,4 +52,5 @@ Yonason Katz, 1470 E 26th Street Brooklyn NY 11223, 718-376-2658, Huffy, 20", Bl
 Bracha Smith, 25 North Rigaud Road Spring Valley NY 10977, 845-352-1099, Razor, 24", Slate, 2023-05-18, $167.00, New, 2023-07-22, Summer, $220.00
 Moshe Weiss, 25 Old Nyack Turnpike Monsey NY 10952, 845-356-9423, Kent, 24", Black, 2022-12-13, $103.00, Used Minor Fixup, 2023-08-16, Summer, $195.00
 Yehuda Jacobs, 1650 Lexington Avenue Lakewood NJ 08701, 732-930-8054, Schwinn, 20", Blue, 2022-04-09, $42.00, Used, Major Fixup, 2022-07-20, Summer, $98.00
+
 */
