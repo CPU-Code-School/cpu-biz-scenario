@@ -1,6 +1,6 @@
 use master 
 go 
-drop database if exists fpmembersDB
+drop database if exists fpmemberDB
 go
-create database fpmembersDB
+create database fpmemberDB
 go 
