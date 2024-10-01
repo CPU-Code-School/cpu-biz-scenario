@@ -1,6 +1,7 @@
 use master 
 go 
-drop database if exists FpMemberDB
+drop database if exists FitPlexDB
 go
-create database FpMemberDB
+create database FitPlexDB
 go 
+use FitPlexDB
