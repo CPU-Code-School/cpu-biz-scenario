@@ -25,7 +25,8 @@ create table dbo.Member(
           constraint c_Member_membership_type_must_be_annual_semiannual_monthly_or_quarterly check(MembershipType in ('annual', 'semi-annual', 'monthly', 'quarterly')),
      PaymentStatus varchar(10) not null 
           constraint c_Member_payment_status_cannot_be_blank check(PaymentStatus <> ''),
-     EmergencyContactPhoneNum char(8) 
+     EmergencyContactPhoneNum char(8) not null
+          constraint c_Member_emergency_contact_phone_number_must_have_seven_digits check(EmergencyContactPhoneNum like '[1-9][0-9][0-9][-][0-9][0-9][0-9][0-9]'), 
           constraint d_Member_emergency_contact_phone_number_default_value_is_blank default '',
      SessionDateAndTime datetime not null,
      MemberWeightLostLb as MemberInitialWeightLb - MemberCurrentWeightLb persisted,
