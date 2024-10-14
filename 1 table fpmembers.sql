@@ -10,7 +10,6 @@ create table dbo.Member(
           constraint c_Member_last_name_cannot_be_blank check(MemberLastName <> ''),
      MemberPhoneNum char(8) not null
           constraint c_Member_phone_number_must_have_seven_digits check(MemberPhoneNum like '[1-9][0-9][0-9][-][0-9][0-9][0-9][0-9]'),
-          constraint u_Member_phone_number unique(MemberPhoneNum),
      MemberInitialWeightLb tinyint not null
           constraint c_Member_initial_weight_cannot_be_blank check(MemberInitialWeightLb > 0),
      MemberGoalWeightLb tinyint not null 
