@@ -10,11 +10,11 @@ create table dbo.Member(
           constraint c_Member_last_name_cannot_be_blank check(MemberLastName <> ''),
      MemberPhoneNum char(8) not null
           constraint c_Member_phone_number_must_have_seven_digits check(MemberPhoneNum like '[1-9][0-9][0-9][-][0-9][0-9][0-9][0-9]'),
-     MemberInitialWeightLb tinyint not null
+     MemberInitialWeightLb int not null
           constraint c_Member_initial_weight_cannot_be_blank check(MemberInitialWeightLb > 0),
-     MemberGoalWeightLb tinyint not null 
+     MemberGoalWeightLb int not null 
           constraint c_Member_goal_weight_cannot_be_blank check(MemberGoalWeightLb > 0),
-     MemberCurrentWeightLb tinyint not null
+     MemberCurrentWeightLb int not null
           constraint c_Member_current_weight_cannot_be_blank check(MemberCurrentWeightLb > 0),
      MemberBMI decimal(3,1) not null
           constraint c_Member_body_mass_index_cannot_be_blank check(MemberBMI > 0),
