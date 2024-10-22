@@ -15,7 +15,7 @@ select AvgTimeBikesInStore = Avg(datediff(day, s.DatePurchased, s.DateSold)), Le
 from Shop s
 
 --4) I need a report with the profit for each sale and show the Customers name, BikeCompany, PurchasePrice, SoldPrice, New/Used.
-select ProfitFromSale = s.SoldPrice - s.PurchasePrice, s.FirstName, s.LastName, s.BikeCompany, s.PurchasePrice, s.SoldPrice, s.NewOrUsed
+select ProfitFromSale = s.SoldPrice - s.PurchasePrice, s.FirstName, s.LastName, s.BikeCompany, s.PurchasePrice, s.SoldPrice, s.New
 from Shop s
 --5) Which is the most popular bike company I sell.
 select top(1) s.BikeCompany , NumBikes = count(*)
