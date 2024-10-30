@@ -24,8 +24,7 @@ create table dbo.Member(
      MembershipEndDate date not null,
      MembershipType varchar(11) not null 
           constraint c_Member_membership_type_must_be_annual_semiannual_monthly_or_quarterly check(MembershipType in ('annual', 'semi-annual', 'monthly', 'quarterly')),
-     PaymentStatus varchar(10) not null 
-          constraint c_Member_payment_status_cannot_be_blank check(PaymentStatus <> ''),
+     PaymentStatus bit not null,
      EmergencyContactPhoneNum char(8) 
           constraint d_Member_emergency_contact_phone_number_default_value_is_blank default '',
      SessionDateAndTime datetime not null,

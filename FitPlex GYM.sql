@@ -15,7 +15,6 @@ Reports:
 	
 	5) I would like to see the difference in progress made by members in different membership categories. Please show me the average weight loss per membership type.
 
-
 Questions:
 
 Q: When did the first member join your gym?

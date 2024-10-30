@@ -34,7 +34,7 @@ group by MembershipType, PaymentStatus
 	Please provide a list of all members and their progress, sorted by the amount of weight loss in desc order. 
 */
 
-select MemberFirstName, MemberLastName, MemberWeightLostLb
+select MemberFirstName, MemberLastName, MemberWeightLostLb 
 from member
 order by MemberWeightLostLb DESC
 
@@ -46,3 +46,5 @@ order by MemberWeightLostLb DESC
 select AvgWeightLost = avg(MemberWeightLostLb), MembershipType
 from member
 group by membershiptype 
+
+select * from Member
