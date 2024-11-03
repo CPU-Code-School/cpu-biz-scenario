@@ -17,8 +17,12 @@ create table dbo.Shop(
     ConditionWhenReceived varchar(11) null constraint c_Shop_condition_when_received_only_allows_perfect_minor_or_major_fixup_or_restoration
         check(ConditionWhenReceived in ('perfect', 'minor fixup', 'major fixup', 'restoration')),
     DateSold date not null,
-    SeasonSold varchar(6) not null
-        constraint c_Shop_season_sold_must_be_one_of_the_four_seasons_of_the_year check(SeasonSold in ('spring', 'summer', 'fall', 'winter')),
+    SeasonSold as case
+        when datepart(month, DateSold) between 3 and 5 then 'spring'
+        when datepart(month, DateSold) between 6 and 8 then 'summer'
+        when datepart(month, DateSold) between 9 and 11 then 'fall'
+        when datepart(month, DateSold) in ('12', '01', '02') then 'winter'
+        end persisted,
     SoldPrice decimal(6, 2) not null constraint c_Shop_sold_price_must_be_greater_than_zero check(SoldPrice > 0),
         constraint c_Shop_sold_price_cannot_be_greater_than_three_thousand check(SoldPrice <= 3000),
     constraint c_ConditionWhenReceived_must_have_entry_if_new_and_must_be_null_if_used
