@@ -24,7 +24,7 @@ select Season = case
                 when datepart(month,b.OrderDate) in (11, 12, 1, 2, 3, 4) then 'Winter'
                 when datepart(month,b.OrderDate) in (5, 6) then 'Spring'
                 end,
-b.StoreBranch, b.StoreBranch , NumOfOrders = count(ItemType)
+b.StoreBranch, b.OrderOccasion , NumOfOrders = count(ItemType)
 from baking b
 group by case
                 when datepart(month,b.OrderDate) in (7, 8) then 'Summer'

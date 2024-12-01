@@ -25,11 +25,9 @@ create table dbo.baking(
         constraint ck_Baking_topping_must_be_either_icing_fondant_choc_caramel_strawberry_coconut_peanut_butter_vanilla_or_no_topping
             check (Topping in ('Royal icing', 'fondant', 'frosting', 'chocolate', 'caramel', 'strawberry', 'coconut', 'peanut butter', 'vanilla', 'no topping')),
 
-    Picture varchar(3) not null
-        constraint ck_Baking_picture_must_be_either_yes_or_no check(picture in ('yes', 'no')),
+    Picture bit,
 
-    OrderSpecifics varchar(100) not null
-        constraint ck_Baking_order_specifics_cannot_be_blank check (OrderSpecifics <> ''),
+    OrderSpecifics varchar(100),
     
     OrderOccasion varchar(50) not null
         constraint ck_Baking_order_occasion_cannot_be_blank check (OrderOccasion <> ''),
@@ -39,27 +37,23 @@ create table dbo.baking(
     PricePerItem AS
         (CASE 
             WHEN BaseType = 'Strawberry shortcake' THEN 
-            (55 + CASE WHEN Picture = 'yes' THEN 8 ELSE 0 END)  
+            (55 + CASE WHEN Picture = 1 THEN 8 ELSE 0 END)  
             WHEN ItemType = 'cake' THEN 
-            (50 + CASE WHEN Picture = 'yes' THEN 8 ELSE 0 END) 
+            (50 + CASE WHEN Picture = 1 THEN 8 ELSE 0 END) 
             WHEN ItemType = 'cookie' THEN 
-            (3.50 + CASE WHEN Picture = 'yes' THEN 1.50 ELSE 0 END)  
-            WHEN ItemType = 'cupcake' THEN 
-            (3 + CASE WHEN Picture = 'yes' THEN 0 ELSE 0 END) 
-            ELSE 0 
+            (3.50 + CASE WHEN Picture = 1 THEN 1.50 ELSE 0 END)  
+            WHEN ItemType = 'cupcake' THEN 3
             END) persisted,
 
      OrderPrice AS (Amount * 
             CASE
             WHEN ItemType = 'cookie' THEN
-                (3.50 + CASE WHEN Picture = 'yes' THEN 1.50 ELSE 0 END)
-            WHEN ItemType = 'cupcake' THEN
-                (3 + CASE WHEN Picture = 'yes' THEN 0 ELSE 0 END)
+                (3.50 + CASE WHEN Picture = 1 THEN 1.50 ELSE 0 END)
+            WHEN ItemType = 'cupcake' THEN 3
             WHEN ItemType = 'cake' THEN
-                (50 + CASE WHEN Picture = 'yes' THEN 8 ELSE 0 END)
+                (50 + CASE WHEN Picture = 1 THEN 8 ELSE 0 END)
             WHEN BaseType = 'Strawberry shortcake' THEN
-                (55 + CASE WHEN Picture = 'yes' THEN 8 ELSE 0 END)
-            ELSE 0
+                (55 + CASE WHEN Picture = 1 THEN 8 ELSE 0 END)
         END) persisted,
 
         CONSTRAINT c_Baking_amount_must_be_within_the_max_and_min 
