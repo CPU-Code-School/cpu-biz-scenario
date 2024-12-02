@@ -25,7 +25,7 @@ create table dbo.baking(
         constraint ck_Baking_topping_must_be_either_icing_fondant_choc_caramel_strawberry_coconut_peanut_butter_vanilla_or_no_topping
             check (Topping in ('Royal icing', 'fondant', 'frosting', 'chocolate', 'caramel', 'strawberry', 'coconut', 'peanut butter', 'vanilla', 'no topping')),
 
-    Picture bit,
+    Picture bit not null,
 
     OrderSpecifics varchar(100),
     
