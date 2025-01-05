@@ -6,10 +6,12 @@ select
 count(case when b.CustomerAddress like '%Spring Valley%' then 1 end) as LoalCustomers,
 count(case when b.CustomerAddress not like '%Spring Valley%' then 1 end) as OutOfTownCustomers
 from bike b 
+where b.CustomerAddress is not null
 
 --2) The amount of bikes sold per season to know what is my busiest season.
 select b.Season, count(*) as AmountSold
 from bike b 
+where b.CustomerAddress is not null
 group by b.season
 order by AmountSold desc 
 
@@ -20,13 +22,16 @@ select
  max(datediff(day,DatePurchased,dateSold)) as MaxTimeInStore,
  sum(SalePrice) - sum(PurchasePrice) as TotalProfit
 from bike b 
+where b.CustomerAddress is not null
 
 --4) I need a report with the profit for each sale and show the Customers name, BikeCompany, PurchasePrice, SoldPrice, New/Used.
 select b.CustomerName, b.BikeCompany, b.PurchasePrice, b.SalePrice, b.New, b.SalePrice - b.PurchasePrice as Profit
 from bike b 
+where b.CustomerAddress is not null
 
 --5) Which is the most popular bike company I sell.
 select top 1 b.BikeCompany, count(*) as AmountSold
 from bike b 
+where b.CustomerAddress is not null
 group by b.BikeCompany
 order by AmountSold desc 
