@@ -10,7 +10,7 @@ Reports:
 1. I need to know how many students from each college we were able to find jobs for in under 2 weeks. 
     This will help my company know which college's graduates we should try to attract to our company.
 2. Who were we more successful in placing, males or females?
-3. On average, how many people contact us every day and how many people fnd out about us per form of media. 
+3. On average, how many people contact us every day and how many people find out about us per form of media. 
     This will help us decide which forms of media communication we should invest in.
 4. On average, how many people do we succeed in placing per day?
 5. How many educators get placed a day per type of education degree?
