@@ -32,6 +32,6 @@ from Customer c
 */
 
 select c.CostumeBought, c.AmountBought, c.CostPrice, c.SoldPricePerCostume,
-(c.SoldPricePerCostume * c.AmountBought) - (c.CostPrice * c.AmountBought) as Profit
+c.TotalPrice - (c.CostPrice * c.AmountBought) as Profit
 from Customer c
 order by Profit desc
