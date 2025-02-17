@@ -42,4 +42,3 @@ create table dbo.Sales(
 				check((New = 1 and ConditionWhenReceived is null) or (New = 0 and ConditionWhenReceived is not null ))
 		)
 		--select * from sales
-		

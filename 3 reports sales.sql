@@ -1,4 +1,3 @@
-
 --Reports:
 --1) I would like to know how many local customers I have as oppose to out-of-town customers.
 select LocalCustomers = count (*)
