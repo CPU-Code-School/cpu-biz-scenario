@@ -22,9 +22,8 @@ order by NumberBought desc
 3. I need you to show me all of my customers in the following format: name: amountbought - costume customer bought (how much they paid)
 */
 
---RM: For how much they paid are you looking for the total price or the sold price per costume?
 select
-concat(c.FirstName, ' ', c.LastName, ': ', c.AmountBought, ' - ', c.CostumeBought, ' ($', c.SoldPricePerCostume, ')') as CustomerList
+concat(c.FirstName, ' ', c.LastName, ': ', c.AmountBought, ' - ', c.CostumeBought, ' ($', c.TotalPrice, ')') as CustomerList
 from Customer c
 
 /*
