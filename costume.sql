@@ -4,7 +4,7 @@ I am now going to need a database to keep track all the costumes that are sold.
 I want the name of the customer, which costumes they bought, which size, how much I paid per costume, how much they paid per costume, 
 how many they bought, did they pay full price, date I bought, date I sold.
 I also want the total price that the customer paid.
-
+ 
 There are only 5 options of prices in my store. The prices go according to the size:
  Size:  Cost Price:  Price Sold:
  XS        $15           $20
