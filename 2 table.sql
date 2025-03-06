@@ -3,11 +3,11 @@ go
 drop table if exists ShoeInventory
 go
 create table dbo.ShoeInventory (
-    ShoeID int not null identity primary key,
-    CustomerName varchar(50), 
-    Age int,
+    ShoeInventoryID int not null identity primary key,
+    CustomerName varchar(50) not null constraint ck_ShoeInventory_CustomerName_not_blank check(CustomerName <> ''), 
+    Age int not null,
     PhoneNumber char(15) not null,
-    DateReceived date constraint ck_ShoeInventory_DateReceived_not_before_June_16_2012 check(DateReceived >= '06-16-2012'),
+    DateReceived date not null constraint ck_ShoeInventory_DateReceived_not_before_June_16_2012 check(DateReceived >= '06-16-2012'),
     DateSold date constraint ck_ShoeInventory_DateSold_not_before_June_16_2012 check(DateSold >= '06-16-2012'),
     SeasonSold as case
             when month(DateSold) between 3 and 5 then 'Spring'
@@ -15,9 +15,9 @@ create table dbo.ShoeInventory (
             when month(DateSold) between 9 AND 11 THEN 'Fall'
             else 'Winter'
         end persisted,
-    PriceBought decimal (6,2),
+    PriceBought decimal (6,2) not null,
     PriceSold decimal (7,2),
-    Company varchar(30),
+    Company varchar(30) not null,
     Returned bit,
         /*SS Normally I would add this constraint in, but it doesn't work with the Invention data
         constraint ck_ShoeInventory_DateSold_not_before_current_date check (DateSold >= (getdate())),*/
