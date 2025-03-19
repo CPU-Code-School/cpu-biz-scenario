@@ -7,12 +7,8 @@ create table dbo.ShoeInventory (
     CustomerName varchar(50) not null constraint ck_ShoeInventory_CustomerName_cannot_blank check(CustomerName <> ''), 
     Age int not null,
     PhoneNumber char(13) not null constraint ck_ShoeInventory_PhoneNumber_cannot_be_blank check (PhoneNumber <> ''),
-    DateReceived date not null 
-        constraint ck_ShoeInventory_DateReceived_not_before_June_16_2012 check(DateReceived >= '06-16-2012'),
-        constraint ck_ShoeInventory_DateReceived_not_after_current_date check (DateReceived <= (getdate())),
-    DateSold date 
-        constraint ck_ShoeInventory_DateSold_not_before_June_16_2012 check(DateSold >= '06-16-2012'),
-        constraint ck_ShoeInventory_DateSold_not_after_current_date check (DateSold <= (getdate())),
+    DateReceived date not null constraint ck_ShoeInventory_DateReceived_not_before_June_16_2012_and_not_future_date check(DateReceived between '06-16-2012' and getdate()),
+    DateSold date constraint ck_ShoeInventory_DateSold_not_before_June_16_2012_and_not_future_date check(DateSold between '06-16-2012' and getdate()),
     SeasonSold as case
             when month(DateSold) between 3 and 5 then 'Spring'
             when month(DateSold) between 6 AND 8 THEN 'Summer'

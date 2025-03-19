@@ -4,7 +4,7 @@ select * from ShoeInventory
 1) Per season which shoes sold the least, most and average
     Seasons divided as follows: Mar - May = Spring, Jun - Aug = Summer, Sep - Nov = Fall, Dec - Feb = Winter
 */
-select SeasonSold, LeastSold= min(count(Company)), MostSold= max(count(Company))
+select SeasonSold, LeastSold= min(Company), MostSold= max(Company)
 from ShoeInventory
 group by SeasonSold
 
