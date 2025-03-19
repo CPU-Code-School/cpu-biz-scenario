@@ -5,9 +5,10 @@ select * from ShoeInventory
     Seasons divided as follows: Mar - May = Spring, Jun - Aug = Summer, Sep - Nov = Fall, Dec - Feb = Winter
 */
 
-select SeasonSold, LeastSold= min(Company), MostSold= max(Company)
+select SeasonSold, LeastSold= min(count(Company)), MostSold= max(count(Company))
 from ShoeInventory
 group by SeasonSold
+
 
 /* 2) for marketing information, which age group (divided by tens 1-10, 11-20 etc.) brought in the most profit*/
 select top 1
