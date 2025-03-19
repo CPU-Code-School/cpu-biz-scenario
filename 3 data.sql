@@ -4,9 +4,10 @@ insert ShoeInventory(CustomerName, Age, PhoneNumber, DateReceived, DateSold, Pri
     select
     CustomerName = concat(i.InventorLastName, ', ', i.InventorFirstName),
     Age = i.AgeatTimeofInvention,
-    PhoneNumber= concat('(',i.YearInvented- 1000, ')', reverse(substring(convert(varchar, i.YearDied, 110), 1, 3)), '-', i.YearBorn),
-    DateReceived = convert(varchar, concat('01-01-20', substring(convert(varchar, i.YearBorn, 110), 1, 2)), 110),
-    DateSold = concat(
+    PhoneNumber = concat('(',i.YearInvented - 1000, ')', substring(reverse(i.YearDied), 1, 3), '-', i.YearBorn),
+    DateReceived = datefromparts(concat('20',substring(convert(varchar, i.YearBorn, 110), 1, 2)),'01','01'),
+    DateSold = datefromparts(
+        concat('20', substring(convert(varchar(4), i.YearDied), 1, 2)),
         case
             when substring(i.InventionName, 1, 1) between 'a' and 'd' then '02'
             when substring(i.InventionName, 1, 1) between 'e' and 'h' then '04'
@@ -14,11 +15,8 @@ insert ShoeInventory(CustomerName, Age, PhoneNumber, DateReceived, DateSold, Pri
             when substring(i.InventionName, 1, 1) between 'm' and 'p' then '08'
             when substring(i.InventionName, 1, 1) between 'q' and 'u' then '10'
             else '12'
-        end, 
-        '-', 
-        concat('1', substring(convert(varchar(4), i.YearDied), 4, 1)), 
-        '-',
-        concat('20', substring(convert(varchar(4), i.YearDied), 1, 2))
+        end,
+        concat('1', substring(convert(varchar(4), i.YearDied), 4, 1))
     ),
     PriceBought = substring(convert(varchar, i.YearBorn, 110), 1, 3),
     PriceSold= AgeAtTimeOfInvention + substring(convert(varchar, i.YearDied, 110), 1, 3),
