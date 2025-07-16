@@ -1,0 +1,22 @@
+use master
+go
+drop table if EXISTS dbo.FitPlex 
+go
+CREATE table dbo.FitPlex(
+    Member VARCHAR(50) not NULL,
+    ContactNumber CHAR (8) not NULL CONSTRAINT ck_number_must_be_in_correct_format CHECK (ContactNumber like '%%%-%%%%'), 
+    InitialWeight int not NULL,
+    GoalWeight int not null,
+    CurrentWeight int NOT NULL,
+    BMI VARCHAR (4)not null,
+    StartDate DATE not NULL CONSTRAINT ck_start_date_cannot_be_before_12_01_2022 CHECK (StartDate > = '2022-12-01'),
+    EndDate DATE ,
+    SessionDate DATE not NULL,
+    SessionTime VARCHAR(10) not NULL,
+    MembershipType VARCHAR(11) not NULL CONSTRAINT ck_memebership_type_can_only_be_Annual_Semi_Annual_or_Monthly CHECK (MembershipType in ('Annual', 'semi-annual', 'monthly')),
+    PaymentStatus VARCHAR (8) NOT NULL CONSTRAINT ck_payment_status_must_be_either_paid_or_not_paid CHECK(PaymentStatus in ('Paid', 'Not Paid')),
+    CONSTRAINT ck_goal_weight_must_be_less_than_initial_weight CHECK(InitialWeight > GoalWeight),
+    CONSTRAINT ck_start_date_must_be_before_end_date CHECK(StartDate < EndDate)
+
+)
+go
