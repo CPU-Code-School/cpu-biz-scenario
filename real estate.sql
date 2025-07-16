@@ -1,27 +1,21 @@
 /*
-I run a residential Real Estate business based in Lakewood since 2009. We don't actually own the houses. We are just the Realtors.
+I run a residential Real Estate business based in Lakewood, NJ since 2009. We don't actually own the houses, we are just the realtors.
 Until now we only bought and sold in Lakewood. We didn't even enter the town into our sytem because it was a given. 
 Now, with the rapid growth of the community, there isn't much to buy and sell in Lakewood anymore.
-We began to expand to buy and sell in Jackson, Toms River, Howell, Brick , and Manchester. We now need to record what town each house is located 
-in. When we tried to amend our program we noticed many weaknesses in our current system. We decided we are best off starting from scratch.
+We began to expand to buy and sell in Jackson, Toms River, Howell, Brick , and Manchester. We now need to record what town each house is located in.
+When we tried to amend our program we noticed many weaknesses in our current system. We decided we are best off starting from scratch.
 
-We record the address of the house, the town the house is in, the type of house (bi-level, colonial, ranch, split-level, duplex, townhouse
-or vacant land), and the sqare-footage of the house. We also want to record amount of Bathrooms and Bedrooms 
+We record the address of the house and the town the house is in. 
+We then record the type of house (bi-level, colonial, ranch, split-level, duplex, townhouse or vacant land), and the sqare-footage of the house. 
+We also want to record amount of Bathrooms and Bedrooms.
 We don't do any renting, we do sometimes sell individual apartments.
-We need to record who owns the house and which one of our Realtors is working on this house. We also need to record who our client is.  
+We need to record who owns the house and which one of our realtors is working on this house. We also need to record who our client is.  
 Sometimes houses are owned by entities so we need to know who is the individual we are in contact with.  We also want to record on what date 
-was the house put on the market and if it was sold to who and on what date. I would also like to record the asking price and the price the 
-house was actually sold for.
-
-I also want to record, if the house is not sold, is it in contract yet? if so, then the only column blank is the close date.
+the house was put on the market and if it was sold. If it was sold, we need to know the following: who it was sold to, date sold, asking price and selling price.
+If the house is not sold, record if it is in contract. 
 
 Q: Do you enter the houses into your system before they are officially on the market?
-A: Usually when houses are entered into the system, that is when they are on the market. Sometimes when we are overworked (at the end of the 
-year) houses are bought and sold before they are entered...but it is usually around the date it was entered and it only happens to houses 
-that were sold on the same day or the next day. Therefore, we should have another column for when the house was put into the system and
-default the date a house was put on the market to be the date it was sold. It is better that the date it was put on the market should be
-a day off rather than blank. It should allow to enter a date that past but not a date in the future
-    We don't need to record time. Just a date is enough.
+A: No.
 
 Q: Are houses ever sold before they are put on market?
 A: No, sometimes they are sold the same day
@@ -39,7 +33,7 @@ for more than 1.5 Million. With today's inflation and rising Real Estate market,
 Q: Do you ever sell for less than the asking price?
 A: We don't
 
-Q: Do you want to record the Sqare footage of the house or the plot of land? 
+Q: Do you want to record the Square footage of the house or the plot of land? 
 A: Both, put it in 2 seperate columns
 
 Reports:
