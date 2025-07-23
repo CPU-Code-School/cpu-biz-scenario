@@ -14,7 +14,7 @@ CustomerName varchar(50) not null constraint ck_Bike_customername_cannot_be_blan
 CustomerAddress varchar(50) not null constraint ck_Bike_customeraddress_cannot_be_blank check(CustomerAddress <> ''),
 CustomerCity varchar(50) not null constraint ck_Bike_customercity_cannot_be_blank check(CustomerCity <> ''),
 CustomerState char(2) not null constraint ck_Bike_customerstate_cannot_be_blank check(CustomerState <> ''),
-CustomerZipCode char(5) not null constraint ck_Bike_customerzipcode_cannot_be_blank check(CustomerZipCode <> ''),
+CustomerZipCode char(5) not null constraint ck_Bike_customerzipcode_must_be_numeric check(CustomerZipCode in '[0-9][0-9][0-9][0-9][0-9]'),
 PhoneNumber char(12) not null constraint ck_Bike_phonenumber_cannot_be_blank check(PhoneNumber <> ''),
 BikeCompany varchar(10) not null constraint ck_Bike_bikecompany_cannot_be_blank check(BikeCompany <> ''),
 BikeSize int not null constraint ck_Bike_bikesize_must_be_greater_than_0 check(BikeSize > 0),
