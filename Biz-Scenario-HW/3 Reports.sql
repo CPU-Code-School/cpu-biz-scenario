@@ -1,5 +1,5 @@
 --1) I would like a list of all active members with their membership details. I would like each member to be listed as last name, first initial.
-SELECT  Member = CONCAT(f.lastName, ' ', SUBSTRING(f.FirstName, 1, 1)  ), *
+SELECT  Member = CONCAT(f.LastName, ' ', SUBSTRING(f.FirstName, 1, 1)  ), *
 from FitPlex F
 --2) I want a list of all active members whose memberships are due to expire within the next month so that I can text them a reminder to renew their subscription.
 SELECT *
