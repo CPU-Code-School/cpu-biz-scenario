@@ -1,6 +1,6 @@
 use master
 go
-insert FitPlex (FirstName, lastName, ContactNumber, EmergencyContactNumber, InitialWeight, GoalWeight, CurrentWeight, BMI, StartDate, EndDate, SessionDate, SessionTime, MembershipType, PaymentStatus)
+insert FitPlex (FirstName, LastName, ContactNumber, EmergencyContactNumber, InitialWeight, GoalWeight, CurrentWeight, BMI, StartDate, EndDate, SessionDate, SessionTime, MembershipType, PaymentStatus)
 select  'Dorothy', 'Dow', '540-1236','123-4567', 180 , 150 , 165 , 28.0, '04/01/2024', '07/01/2024', '07/01/2024', '9:00 A.M.', 'Semi-annual', '1'
 --union all 
 --select 'John', 'Smith', '540-9338', '891-0111', 230 , 180 , 180 , 26.9, '02/24/2022', '02/24/2023', '02/24/2023',  '3:00 P.M.', 'annual', '1'
