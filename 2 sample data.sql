@@ -1,6 +1,5 @@
 delete Bike
 
-
 insert Bike(CustomerName, CustomerAddress, CustomerPhoneNumber,  BikeCompany, BikeSize, BikeColor, DatePurchased, PurchasePrice, IsNew, ConditionWhenReceived, DateSold, Season, SoldPrice)
 select 'Shmuel Bitton', '4 Sparrow Drive Spring Valley NY 10977', '845-425-9501', 'Schwinn', '24"', 'Black', '2022-07-20', 110.00, 1, null, '2022-09-15', 'Summer', 220.00
 union select 'Jack Sullivan', '1889 Fifty Second Street Brooklyn NY 11218', '718-350-4401', 'Trek', '24"', 'Gray', '2023-01-26', 150.00, 1, null, '2023-05-11', 'Spring', 250.00
