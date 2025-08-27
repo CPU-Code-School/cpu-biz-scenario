@@ -1,7 +1,7 @@
 use master 
 go 
 drop database if exists BikeShopDB
-go
+go  
 create database BikeShopDB
 go 
 use BikeShopDB
