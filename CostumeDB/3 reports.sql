@@ -21,5 +21,6 @@ select CustomerInfo = concat(CustomerFirstName, ' ', CustomerLastName, ': ', Amo
 from Costume c
 
  --4. I need to know the profit each sale.
-select Profit = PriceSold - CostPrice, *
+select CostumeID, Profit = (PriceSold - CostPrice) * AmountSold
 from Costume c
+group by (PriceSold - CostPrice) * AmountSold, CostumeId
