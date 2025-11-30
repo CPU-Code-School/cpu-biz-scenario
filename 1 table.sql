@@ -39,7 +39,7 @@ CREATE TABLE dbo.Costume
                 WHEN'L'then 22
                 WHEN'XL'then 25    
             END PERSISTED         ,
-    PayedFullPrice AS
+    PaidFullPrice AS
             CASE 
                 WHEN Discount=0 then'yes'
                 else 'no'
