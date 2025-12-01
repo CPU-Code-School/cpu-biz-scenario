@@ -4,7 +4,7 @@ DROP TABLE if EXISTS dbo.Costume
 GO
 CREATE TABLE dbo.Costume
 (
-   SaleID INT NOT NULL IDENTITY PRIMARY KEY, 
+   CostumeID INT NOT NULL IDENTITY PRIMARY KEY, 
    CustomerFirstName VARCHAR(15) not NULL 
         CONSTRAINT CK_Costume_Customer_First_Name_cannot_be_blank CHECK(CustomerFirstName>''),
    CustomerLastName VARCHAR(15) not NULL 
