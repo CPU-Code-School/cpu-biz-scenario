@@ -17,4 +17,5 @@ SELECT [format]=CONCAT(c.CustomerFirstName,' ',c.CustomerLastName,': ',c.amountb
 from Costume C
 --4. I need to know the profit each sale.
 SELECT c.profit,C.CustomerFirstName,c.customerlastname,c.costume,c.Size,c.amountbought,c.SalesPricePerCostume,c.Discount,c.DateSold,c.PurchasePricePerCostume,c.PaidFullPrice,c.TotalPricePaid
+,[the_profit]=c.SalesPricePerCostume*amountbought-PurchasePricePerCostume*amountbought
 FROM Costume C
