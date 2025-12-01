@@ -2,9 +2,10 @@ USE CostumeStoreDB
 GO
 --I am going to need the following reports:
 --1. I need to know which costume is the most popular.
-SELECT COUNT(*),C.costume
+SELECT top(1) amount_sold=COUNT(*),C.costume
 from Costume C
 GROUP BY C.costume
+order BY amount_sold DESC
 --2. I need to know which size is the most polpular.
 SELECT top(2) amount_sold=COUNT(*),C.size
 from Costume C
