@@ -6,9 +6,10 @@ SELECT COUNT(*),C.costume
 from Costume C
 GROUP BY C.costume
 --2. I need to know which size is the most polpular.
-SELECT COUNT(*),C.size
+SELECT top(2) amount_sold=COUNT(*),C.size
 from Costume C
 GROUP BY C.size
+ORDER BY amount_sold DESC
 --3. I need you to show me all of my customers in the following format: name: amountbought - costume customer bought (how much they paid)
     --(YB I am supposing that "(how much they paid)" means -for each costume, (and not the total amount) since the "Amount Bought" is included in the report.)
 SELECT [format]=CONCAT(c.CustomerFirstName,' ',c.CustomerLastName,': ',c.amountbought,' - ',c.costume,' (',c.SalesPricePerCostume,')')
