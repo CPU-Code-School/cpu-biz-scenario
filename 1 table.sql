@@ -12,9 +12,9 @@ CREATE TABLE dbo.Costume
    Costume varchar(20) not null 
         CONSTRAINT [(CK) Costume must be American Girl Doll,Artist,Bumble Bee,Colonial Boy,Colonial Girl,Elephant,Fire Man,Police Man,Princess,Zebra]
             CHECK(Costume in('American Girl Doll','Artist','Bumble Bee','Colonial Boy','Colonial Girl','Elephant','Fire Man','Police Man','Princess','Zebra')),
-   Size char(2) NOT NULL, 
+   Size char(2) NOT NULL
         constraint CK_Costume_must_be_in_XS_S_M_L_XL CHECK(Size in('XS','S','M','L','XL')),
-   AmountBought TINYINT not NULL, 
+   AmountBought TINYINT not NULL
         constraint CK_Costume_Amount_Bought_must_be_greater_than_0 CHECK(AmountBought>0),
    SalesPricePerCostume AS
             CASE Size
