@@ -28,7 +28,7 @@ CREATE TABLE dbo.Costume
         CONSTRAINT DF_Costume_discount DEFAULT 0 
         CONSTRAINT CK_Costume_Discount_cannot_be_negative CHECK(Discount>=0),
     DateBought DATE  NOT NULL
-        CONSTRAINT CK_Costume_date_bought_must_cannot_be_before_Jan_1_2020 CHECK(DateBought>='January 1, 2020'),
+        CONSTRAINT CK_Costume_date_bought_must_cannot_be_before_Jan_1_2020 CHECK(DateBought>='2020-1-1'),
     DateSold DATE NOT NULL
         CONSTRAINT CK_Costume_date_bought_must_cannot_be_in_the_future CHECK(DateSold<=getdate()), 
     PurchasePricePerCostume AS
