@@ -15,8 +15,7 @@ create table dbo.Soldier(
 	Residence varchar(25) not null
 		constraint c_Soldier_residence_cannot_be_blank check(Residence <> ''),
 	DateEnlisted date not null
-		constraint c_Soldier_date_enlisted_cannot_be_before_May_26_1948 check (DateEnlisted >= '26/5/1948'),
-		constraint c_Soldier_date_enlisted_cannot_be_future_date check(DateEnlisted <= getdate()),
+		constraint c_Soldier_date_enlisted_must_be_between_May_26_1948_and_current_date check (DateEnlisted between '26/5/1948' and getdate()),
 	ServiceUnit varchar(12) not null 
 		constraint c_Soldier_service_unit_must_be_Navy_or_Land_or_Air check(ServiceUnit in ('Navy','Ground Force','Air Force')),
 	UnitRank varchar(30) not null
