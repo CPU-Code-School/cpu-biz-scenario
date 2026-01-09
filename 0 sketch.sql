@@ -1,0 +1,14 @@
+/*
+Store
+    StoreId primary key
+    LastName varchar not null not blank
+    FirstName varchar not null not blank
+    Age int not null greater than zero
+    PhoneNumber varchar not null not blank
+    Company varchar not null not blank
+    DateRecieved date not null before DateSold
+    DateSold date null after DateBought
+    PricePaied decimal not null greater than zero
+    PriceSold decimal not null greater than zero
+    Returns either null or refunded not blank
+*/
