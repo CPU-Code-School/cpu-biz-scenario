@@ -3,6 +3,7 @@ use RecruitingEducatersDB
 drop table if exists EducatersInfo
 go 
 create table dbo.EducatersInfo(
+    EducatersInfoID int not null identity primary key,
     FirstName varchar (25) not null
     constraint C_Recruiting_Educaters_First_Name_not_blank check(FirstName <> ''),
     LastName varchar (25) not null
