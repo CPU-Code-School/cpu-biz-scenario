@@ -8,7 +8,7 @@ I will need to record the name and age of the customer, the date I got the shoes
 and of course I will need the company name of the shoes sold.
 
 The reports I will need are as follows:
-1) Per season which shoes sold the least and which sold the least
+1) Per season which shoes sold the least and which sold the most
     Seasons divided as follows: Mar - May = Spring, Jun - Aug = Summer, Sep - Nov = Fall, Dec - Feb = Winter
 2) for marketing information, which age group (divided by tens 1-10, 11-20 etc.) brought in the most profit
 3) To get the financial status, I will need a list of the annual total number of sales, and the total income
