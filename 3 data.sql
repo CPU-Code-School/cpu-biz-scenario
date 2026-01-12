@@ -1,14 +1,24 @@
-use ShoeStoreDB 
+use ShoeSalesDB 
 go 
 
-delete store
+delete sales
 go
 
-insert store(CustomerName, Age, PhoneNumber, Company, DateRecieved, DateSold, PricePaid, PriceSold, OrderReturns)
+insert sales(CustomerName, Age, PhoneNumber, Company, DateRecieved, DateSold, PricePaid, PriceSold, OrderReturns)
 select inventorLastName + ', ' + inventorFirstName, 
 YearInvented - YearBorn,
 Concat('(',YearInvented - 1000, ')', left(cast(yeardied as varchar), 3), '-', YearBorn),
-country,
+case Country
+    when 'Germany' then 'SAS'
+    when 'France' then 'Nike'
+    when 'Italy' then 'Adidas'
+    when 'Spain' then 'Florsheim'
+    when 'UK' then 'Puma'
+    when 'USA' then 'New Balance'
+    when 'Canada' then 'Rockport'
+    when 'Australia' then 'Reebok'
+    else 'Unknown'
+end,
   datefromparts(
     cast(concat('20', left(cast(yearborn as varchar), 2)) as int),
     1,
@@ -27,12 +37,13 @@ country,
     end,
     cast(concat('1', right(cast(yeardied as varchar), 1)) as int)
   ),
-CAST(LEFT(CAST(yearborn AS VARCHAR), 3) AS DECIMAL(5,0)),
-CAST(LEFT(CAST(yeardied AS VARCHAR), 3) AS DECIMAL(6,0)) 
-  + (yeardied - yearborn),
-  CASE 
-    WHEN (yeardied - yearborn) IN (29, 31, 40) THEN 'Refunded'
-    ELSE ''
-  END
+cast(left(cast(yearborn as varchar), 3) as decimal(5,0)),
+cast(left(cast(yeardied as varchar), 3) as decimal(6,0)) + (yeardied - yearborn),
+  case 
+    when (yeardied - yearborn) in (29, 31, 40) then 1
+    else ''
+  end
 
 from RecordKeeperDB.dbo.invention
+
+select * from sales

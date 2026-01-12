@@ -1,6 +1,6 @@
 use master 
 go 
-drop database if exists ShoeStoreDB 
+drop database if exists ShoeSalesDB 
 go 
-create database ShoeStoreDB 
+create database ShoeSalesDB 
 go 
