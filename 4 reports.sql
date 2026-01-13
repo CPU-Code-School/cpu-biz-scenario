@@ -1,65 +1,31 @@
 use ShoeSalesDB  
 go
 /*1. Per season which shoes sold the least and which sold the least Seasons divided as follows: Mar - May = Spring, Jun - Aug = Summer, Sep - Nov = Fall, Dec - Feb = Winter*/
-select 
-    Season,
+select
     Company,
-    UnitsSold,
-    SaleType
+    Season,
+    MinSold = min(TotalSold),
+    MaxSold = max(TotalSold)
 from (
-    select 
-        Company,
+    select
+        Company, Season =
         case 
-            when month(DateSold) between 3 and 5 then 'Spring'
-            when month(DateSold) between 6 and 8 then 'Summer'
-            when month(DateSold) between 9 and 11 then 'Fall'
+            when month(DateSold) in (3,4,5) then 'Spring'
+            when month(DateSold) in (6,7,8) then 'Summer'
+            when month(DateSold) in (9,10,11) then 'Fall'
             else 'Winter'
-        end as Season,
-        count(*) as UnitsSold
-    from Sales
-    group by Company,
-    case 
-       when month(DateSold) between 3 and 5 then 'Spring'
-       when month(DateSold) between 6 and 8 then 'Summer'
-       when month(DateSold) between 9 and 11 then 'Fall'
-       else 'Winter'
-    end
-) as SeasonSales
-cross apply (
-    select 'Least' as SaleType where UnitsSold = (
-        select min(UnitsSold)
-        from (
-            select Company, count(*) as UnitsSold
-            from Sales
-            where 
-                case 
-                    when month(DateSold) between 3 and 5 then 'Spring'
-                    when month(DateSold) between 6 and 8 then 'Summer'
-                    when month(DateSold) between 9 and 11 then 'Fall'
-                    else 'Winter'
-                end = SeasonSales.Season
-            group by Company
-        ) as SeasonUnits
-    )
-    union ALL
-    select 'Most' as SaleType where UnitsSold = (
-        select max(UnitsSold)
-        from (
-            select Company, count(*) as UnitsSold
-            from Sales
-            where 
-                case 
-                    when month(DateSold) between 3 and 5 then 'Spring'
-                    when month(DateSold) between 6 and 8 then 'Summer'
-                    when month(DateSold) between 9 and 11 then 'Fall'
-                    else 'Winter'
-                end = SeasonSales.Season
-            group by Company
-        ) as SeasonUnits
-    )
-) as SaleTypes
-order by Season, SaleType, Company   
-
+        end,
+        TotalSold = count(*)
+    from sales
+    group by Company, 
+        case 
+            when month(DateSold) in (3,4,5) then 'Spring'
+            when month(DateSold) in (6,7,8) then 'Summer'
+            when month(DateSold) in (9,10,11) then 'Fall'
+            else 'Winter'
+        end
+) as SalesBySeasonCompany
+group by Company, Season
 /*2. for marketing information, which age group (divided by tens 1-10, 11-20 etc.) brought in the most profit*/
     
 select top 1
