@@ -16,5 +16,5 @@ from RealEstate r
 
 SELECT MoreThenAsing = SoldOrsellingPrice - AskingPrice ,
 AskingPrice, SoldOrsellingPrice, * 
-from RealEstate r
+from RealEstate r 
 

@@ -41,4 +41,4 @@ Provides insights such as: Total sales volume per realtor, average price per tow
 - Town Tracking: Mandatory town field to support the new regional expansion.
 - Re-runnable Scripts:
 - DROP DATABASE IF EXISTS / CREATE DATABASE
-- DROP TABLE IF EXISTS 
+- DROP TABLE IF EXISTS

@@ -5,4 +5,4 @@ GO
 CREATE database RealEstateDB
 GO
 use RealEstateDB
-go
+go 
