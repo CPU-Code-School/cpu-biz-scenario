@@ -103,6 +103,3 @@ select '6 Lynn Drive', 'Toms River', 'Colonial', 4, 2.5, 3000, 42000, 'Lynn Driv
 --House Address and Town must be if not Apartment UNION
 INSERT RealEstate (HouseAddress, Town, TypeOfHouse, Bedrooms, Bathrooms, HouseSquareFootage, LotSquareFootage, HouseOwner, Client, Realtor, DateOnMarket, DateSold, AskingPrice, SoldOrsellingPrice, Buyer, UnderContract, Sold)
 select '5 Lynn Drive', 'Toms River', 'Colonial', 4, 2.5, 3000, 42000, 'Lynn Drive, LLC', 'Yaakov Fishman', 'Rivka Harnik', '1/12/2021', '2/22/2021', 450000, 475000, 'Rachel Gestetner', 0, 1
-
-
-

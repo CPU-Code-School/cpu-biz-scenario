@@ -12,10 +12,6 @@ INSERT RealEstate (HouseAddress, Town, TypeOfHouse, Bedrooms, Bathrooms, HouseSq
 select '176 Hadassah Lane', 'Lakewood', 'duplex', 5, 2.5, 2550, 3049.2 , 'Greenview Equities, LLC', 'shlomo press', 'Moshe Celnik', '5/3/2021', null, 549000, 600000, 'Shea Speigel', 1, 0
 INSERT RealEstate (HouseAddress, Town, TypeOfHouse, Bedrooms, Bathrooms, HouseSquareFootage, LotSquareFootage, HouseOwner, Client, Realtor, DateOnMarket, DateSold, AskingPrice, SoldOrsellingPrice, Buyer, UnderContract, Sold)
 select '1141 Central Avenue', 'Lakewood', 'ranch', 3, 1, 855, 5000, 'Sorah Hager', 'Yitzchok Tendler', 'Moshe Celnik', '1/2/2022', null, 300000, null, null, 0, 0
-
-
-
--- SOLD HOMES
 INSERT RealEstate (HouseAddress, Town, TypeOfHouse, Bedrooms, Bathrooms, HouseSquareFootage, LotSquareFootage, HouseOwner, Client, Realtor, DateOnMarket, DateSold, AskingPrice, SoldOrsellingPrice, Buyer, UnderContract, Sold)
 select '101 Oak St', 'Jackson', 'colonial', 4, 2.5, 2400, 12000, 'John Smith', 'Smith Family', 'Amy Lopez', '2023-01-10', '2023-03-05', 450000, 465000, 'Robert King', 0, 1
 INSERT RealEstate (HouseAddress, Town, TypeOfHouse, Bedrooms, Bathrooms, HouseSquareFootage, LotSquareFootage, HouseOwner, Client, Realtor, DateOnMarket, DateSold, AskingPrice, SoldOrsellingPrice, Buyer, UnderContract, Sold)

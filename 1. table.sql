@@ -68,7 +68,7 @@ CREATE TABLE dbo.RealEstate(
         GO
               CREATE UNIQUE INDEX u_House_Address_and_Town_must_be_if_not_Apartment_UNION
               ON dbo.RealEstate (HouseAddress, Town)
-              WHERE TypeOfHouse <> 'Apartment'
+              WHERE TypeOfHouse <> 'Apartment' 
 
 
 
