@@ -1,3 +1,5 @@
+use RealEstateDB
+go
 SELECT *
 FROM RealEstate
 ORDER BY

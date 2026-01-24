@@ -52,4 +52,3 @@ INSERT RealEstate (HouseAddress, Town, TypeOfHouse, Bedrooms, Bathrooms, HouseSq
 select '5 River Rd Apt 3D', 'Brick', 'apartment', 2, 1.5, 1000, NULL, 'Brick Towers LLC', 'Brick Towers LLC', 'Tom Baker', '2023-03-15', '2023-04-20', 275000, 280000, 'Emily Carter', 0, 1
 INSERT RealEstate (HouseAddress, Town, TypeOfHouse, Bedrooms, Bathrooms, HouseSquareFootage, LotSquareFootage, HouseOwner, Client, Realtor, DateOnMarket, DateSold, AskingPrice, SoldOrsellingPrice, Buyer, UnderContract, Sold)
 select '88 Lakeside Dr Apt 7E', 'Jackson', 'apartment', 1, 1.0, 700, NULL, 'Lakeview Homes', 'Lakeview Homes', 'Amy Lopez', '2023-05-05', NULL, 185000, NULL, NULL, 0, 0
-SELECT * from RealEstate
