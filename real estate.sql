@@ -49,4 +49,4 @@ Sample data:
 423 2nd Street, Lakewood, Colonial, 9 bdrms, 5.5 baths, house 3500, lot-4200, owner- L3C Jackson, LLC, client-Mark Farkas, Rivka Harnik, 1/6/2015, 6/9/2015, asking 360k, sold 370k, buyer Yossi Handler and Rivky Handler
 176 Hadassah Lane, Lakewood, duplex, 5 bdrms, 2.5 baths, house-2550, lot-3049.2 , Greenview Equities, LLC, shlomo press, Moshe Celnik, 5/3/2021, not sold, asking 549k, selling 600k, buyer Shea Speigel, under contract
 1141 Central Avenue, Lakewood, ranch, 3 bdrms, 1 bath, house-855, lot-5000, Sorah Hager, Yitzchok Tendler, Moshe Celnik, 1/2/2022, not sold, asking 300k, not in contract
-*/ 
+*/
